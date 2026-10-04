@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUPHUB — Pet Care, Nutrition, Adoption & 24/7 Vet</title>
+<meta name="description" content="Grooming, daycare, training, MIOVA nutrition, adoption & 24/7 vet care. 12+ years, 50,000+ happy pet parents in New York.">
+<meta property="og:title" content="PUPHUB — Taking care for your Smart Dog & Cat">
+<meta property="og:description" content="All-in-one pet hub: services, shop, adoption, vet hospital.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FDE6C4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"PetStore","name":"PUPHUB","telephone":"+1-555-123-4567","address":{"@type":"PostalAddress","streetAddress":"123 Pet Street","addressLocality":"New York","postalCode":"10001"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"8200"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--peach:#FDE6C4;--orange:#EB9B3E;--orange-d:#D9821F;--brown:#C49A6C;--brown-d:#A9835A;--ink:#1E1B16;--muted:#6f6a62;--sage:#7C8E6F;--sage-d:#5F7053;--teal:#0E7D6C;--purple:#5B50E6;--cream:#FFFBF4;--line:#ece7dd}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:clip;line-height:1.5}
+img{max-width:100%;user-select:none}
+h1{font-family:'Fraunces',serif;letter-spacing:-.02em;line-height:1.03;font-size:clamp(2.1rem,5.2vw,3.9rem)}
+h2.serif{font-family:'Fraunces',serif;letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(1.4rem,3vw,2rem)}
+.wrap{max-width:1220px;margin:auto;padding:0 20px}
+section{padding:clamp(36px,6vw,60px) 0;scroll-margin-top:80px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+.topbar{background:#1E1B16;color:#fff;font-size:12.5px;text-align:center;padding:9px 12px}
+.topbar b{color:#FFC86B}.topbar button{background:#FFC86B;border:0;border-radius:20px;padding:2px 10px;font-weight:800;cursor:pointer;margin-left:6px}
+.nav{position:sticky;top:0;z-index:60;background:rgba(253,230,196,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.07)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;max-width:1220px;margin:auto;gap:10px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--orange-d);font-size:19px;cursor:pointer;white-space:nowrap}
+.links{display:flex;gap:20px;font-size:12px;font-weight:800}
+.links a{text-decoration:none;color:#222;cursor:pointer;padding:8px 2px}.links a:hover{color:var(--orange-d)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.btn{border:0;cursor:pointer;font-weight:800;border-radius:10px;padding:12px 20px;font-size:13px;transition:.2s;font-family:inherit;min-height:44px}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange-d)}
+.btn-brown{background:var(--brown);color:#fff}.btn-purple{background:var(--purple);color:#fff;border-radius:100px}
+.btn-teal{background:var(--teal);color:#fff;border-radius:100px}.btn-dark{background:#1E1B16;color:#fff;border-radius:100px}
+.btn-outline{background:#fff;border:1.5px solid #ddd;color:#333;border-radius:100px}.btn-outline:hover{border-color:#333}
+.iconbtn{background:#fff;border:1px solid #eee;border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:18px;position:relative}
+#cartCount,#drawerCount{font-weight:800}
+#cartCount{position:absolute;top:-6px;right:-6px;background:var(--orange);color:#fff;font-size:11px;min-width:20px;height:20px;border-radius:20px;display:flex;align-items:center;justify-content:center}
+.mobile-btn{display:none;font-size:26px;background:none;border:0;cursor:pointer;padding:6px}
+#mobileMenu{position:fixed;top:0;left:-300px;width:280px;max-width:85vw;height:100vh;background:#fff;z-index:120;transition:.3s;box-shadow:20px 0 60px rgba(0,0,0,.2);padding:20px}
+#mobileMenu.open{left:0}
+#mobileMenu a{display:block;padding:14px 6px;font-weight:800;text-decoration:none;color:#222;border-bottom:1px solid #f0ece4;cursor:pointer}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:110;display:none}
+#overlay.show{display:block}
+.hero{background:linear-gradient(180deg,#FDDFB6,#FDE6C4 65%,#fff 65%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:40px 0 0}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--orange-d)}
+.sub{color:#5b564e;line-height:1.65;max-width:480px;font-size:15px}
+.hero-cta{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.trust-mini{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.tstat{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #f0e8d8;border-radius:16px;padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.tico{font-size:25px;background:#FFF1D6;width:46px;height:46px;flex:0 0 46px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.tstat>div{min-width:0}
+.tstat b{display:block;font-size:17px;line-height:1.15}
+.tstat small{color:#6f6a62;font-size:11.5px;font-weight:700}
+.hero-dog{position:relative;text-align:center}
+.hero-dog img.main{width:100%;max-width:500px;border-radius:240px 240px 24px 24px;object-fit:cover;object-position:center 20%;aspect-ratio:5/5.4;box-shadow:0 30px 60px rgba(0,0,0,.15);background:#fff}
+.float-card{position:absolute;background:#fff;border-radius:100px;padding:6px 14px 6px 6px;display:flex;align-items:center;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.14);font-size:12px;font-weight:800}
+.float-card img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.press{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:14px 0 4px;color:#8a847b;font-size:12px;font-weight:800}
+.services{background:#fff;text-align:center}
+.underline{width:90px;height:3px;background:#2D9DB3;margin:6px auto 16px;border-radius:10px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:18px}
+.svc{background:var(--brown);color:#fff;border-radius:18px;padding:24px 10px;cursor:pointer;transition:.2s;border:2px solid transparent;text-align:center;font-family:inherit}
+.svc:hover{transform:translateY(-5px);background:var(--brown-d)}
+.svc span{font-size:40px}.svc b{display:block;margin-top:8px}.svc small{font-size:12px;opacity:.92}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
+.why div{background:#FFFBF4;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:left}
+.listen{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:#fff}
+.listen-img{background:#FDE6C4;border-radius:120px 120px 24px 24px;padding:28px;text-align:center;position:relative}
+.listen-img img{width:88%;border-radius:18px;object-fit:cover;object-position:center 20%;aspect-ratio:1/1;background:#fff;cursor:zoom-in}
+.play{position:absolute;right:10px;top:18px;background:var(--brown);color:#fff;width:124px;height:124px;border-radius:40% 40% 40% 10%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border:0;font-family:inherit;font-weight:700}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.timeline div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13px}
+.miova{background:linear-gradient(90deg,#FFFBF2 55%,#E9E1D1 55%)}
+.miova-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center}
+.food-img{position:relative;text-align:center}
+.food-img img.cat{width:min(72%,380px);border-radius:300px 300px 20px 20px;object-fit:cover;object-position:center 20%;aspect-ratio:5/5.6;background:#fff;cursor:zoom-in}
+.price-card{position:absolute;right:2%;bottom:4%;background:#fff;border-radius:18px;padding:16px;width:min(250px,70%);box-shadow:0 20px 50px rgba(0,0,0,.18);text-align:left}
+.scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nutri-table{width:100%;min-width:420px;border-collapse:collapse;margin-top:14px;font-size:13px;background:#fff;border-radius:12px;overflow:hidden}
+.nutri-table td,.nutri-table th{padding:9px 12px;border-bottom:1px solid #f0e8d8;text-align:left}
+.calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px;font-size:13px}
+.calc input,.calc select{padding:10px;border-radius:10px;border:1px solid #ddd;margin:4px;font-family:inherit}
+.trustbar{display:flex;background:#fff;border-radius:22px;padding:14px 18px;box-shadow:0 10px 30px rgba(0,0,0,.06);justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:24px}
+.shop-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.shop-tools input,.shop-tools select{padding:11px 14px;border-radius:100px;border:1px solid #ddd;font-family:inherit;min-height:44px}
+.chip{border:1.5px solid #ddd;background:#fff;border-radius:100px;padding:9px 16px;font-weight:800;font-size:12.5px;cursor:pointer;min-height:40px}
+.chip.active{background:#1E1B16;color:#fff;border-color:#1E1B16}
+.catcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+.catchip{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #eee;border-radius:16px;padding:8px 12px 8px 8px;cursor:pointer;font-family:inherit;text-align:left;min-height:64px;transition:.2s}
+.catchip:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08)}
+.catchip.active{border-color:#1E1B16;background:#1E1B16;color:#fff}
+.catchip img{width:52px;height:52px;border-radius:12px;object-fit:cover;object-position:center 25%;flex-shrink:0;background:#faf3e6}
+.catchip b{font-size:13px;display:block}.catchip small{font-size:11.5px;opacity:.75}
+.adopt{background:#FFFEF9}
+.adopt-hero{background:linear-gradient(90deg,#E7EAD9,#CBD3B7);border-radius:26px;padding:clamp(22px,4vw,38px);display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}
+.adopt-hero img{width:100%;border-radius:180px 180px 18px 18px;object-fit:cover;object-position:center 20%;aspect-ratio:1/1;background:#fff;cursor:zoom-in}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:18px 0}
+.steps div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px}
+.searchbar{background:#fff;border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;margin-top:-26px;position:relative;z-index:2;box-shadow:0 15px 40px rgba(0,0,0,.09)}
+.searchbar label{font-size:11px;font-weight:800;color:#888}
+.searchbar select{border:0;border-bottom:1px solid #eee;width:100%;padding:10px 0;font-weight:600;font-family:inherit;background:#fff}
+.find{background:var(--sage-d);color:#fff;border:0;border-radius:100px;padding:12px 22px;font-weight:800;cursor:pointer;min-height:44px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:22px 0}
+.cat-card{background:#fff;border-radius:16px;padding:14px;text-align:center;border:2px solid #eee;cursor:pointer;font-family:inherit}
+.cat-card.active{border-color:var(--sage-d);background:#EFF2E8}
+.pets{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.pet{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #eee}
+.pet img{width:100%;height:200px;object-fit:cover;object-position:center 25%;background:#f3ede1;cursor:pointer}
+.pet-body{padding:12px}.tag{font-size:11px;background:#f1f1f1;border-radius:20px;padding:3px 8px;margin:4px 5px 0 0;display:inline-block}
+.resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0}
+.res{background:#fff;border-radius:16px;padding:18px;border:1px solid #eee;cursor:pointer;text-align:left;font-family:inherit}
+.testi-slider{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,340px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 12px;margin-top:12px}
+.testi{background:#fff;border-radius:16px;padding:18px;border:1px solid #eee;scroll-snap-align:start}
+.vet{background:#fff}
+.vet-hero{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.vet-hero img{width:100%;border-radius:22px;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;background:#e8f3f0;cursor:zoom-in}
+.stats{display:flex;gap:22px;margin:16px 0;font-weight:800;flex-wrap:wrap}
+.bill-toggle{display:inline-flex;background:#f0ede6;border-radius:100px;padding:4px;margin:10px 0}
+.bill-toggle button{border:0;background:none;padding:10px 18px;border-radius:100px;font-weight:800;cursor:pointer}
+.bill-toggle button.active{background:#1E1B16;color:#fff}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
+.plan{border:1px solid #eee;border-radius:18px;padding:22px;text-align:center;background:#fff}
+.plan.mid{border:2px solid var(--orange);box-shadow:0 15px 40px rgba(235,155,62,.18)}
+.plan h3{font-size:30px;color:var(--teal)}.plan ul{list-style:none;text-align:left;margin:14px 0;line-height:2;font-size:13.5px}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.feat{border:1px solid #eef2ee;border-radius:16px;padding:18px;background:#F9FCF9;cursor:pointer;text-align:left;font-family:inherit}
+.emergency{background:var(--teal);color:#fff;border-radius:20px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;margin:26px 0}
+.emergency div{padding:clamp(20px,4vw,30px)}.emergency img{width:100%;height:320px;object-fit:cover;object-position:center 25%}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.doc{border:1px solid #eee;border-radius:18px;overflow:hidden;text-align:center;padding-bottom:14px;background:#fff}
+.doc img{width:100%;height:260px;object-fit:cover;object-position:center 15%;background:#eef}
+.shop4{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.prod{border:1px solid #eee;border-radius:16px;padding:12px;text-align:center;background:#fff}
+.prod img{width:100%;height:170px;object-fit:cover;object-position:center 30%;border-radius:12px;background:#faf3e6;cursor:pointer}
+.prod button{cursor:pointer;border:1px solid #eee;background:#fff;border-radius:20px;padding:9px 14px;margin:6px 2px 0;min-height:40px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.gallery img{width:100%;height:170px;object-fit:cover;object-position:center 25%;border-radius:14px;cursor:zoom-in;background:#f3ede1}
+.book{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;background:#F7F6F2;border-radius:20px;padding:clamp(18px,3vw,26px);margin-top:26px}
+.book input,.book select,.book textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:6px 0 10px;font-family:inherit}
+.blog3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.blog3>div{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;cursor:pointer}
+.blog3 img{width:100%;height:190px;object-fit:cover;object-position:center 30%}
+.health{background:var(--teal);border-radius:20px;padding:clamp(20px,4vw,26px);color:#fff;display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center;margin:24px 0}
+.app{background:#EFF6F1;border-radius:20px;padding:clamp(20px,4vw,26px);display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;margin:24px 0}
+.ratings{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#FFFBF4;border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:16px}
+.bar{height:8px;background:#eee;border-radius:10px;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%;background:var(--orange);border-radius:10px}
+.faq{max-width:780px;margin:18px auto}
+.faq-item{background:#fff;border:1px solid #eee;border-radius:14px;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;padding:16px 18px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:none;border:0;font-family:inherit;font-size:15px;text-align:left}
+.faq-a{padding:0 18px 16px;color:#555;font-size:14px;line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:20px 0}
+.contact-grid>div{background:#fff;border:1px solid #eee;border-radius:16px;padding:20px;text-align:center}
+.hours{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:14px;overflow:hidden;margin-top:12px}
+.hours td{padding:10px 14px;border-bottom:1px solid #f0ece4}
+.map-wrap{border-radius:18px;overflow:hidden;border:1px solid var(--line);margin-top:12px}
+.map-wrap iframe{width:100%;height:300px;border:0;display:block}
+footer{background:var(--sage);color:#fff;padding:28px 0 0;margin-top:30px}
+.news{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:20px}
+.news input{padding:13px 18px;border-radius:100px;border:0;width:min(320px,90vw);font-family:inherit;min-height:44px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:16px;background:#FFFBF4;color:#333;padding:26px;border-radius:24px 24px 0 0}
+.foot-grid a{display:block;color:#666;text-decoration:none;font-size:13px;margin:6px 0;cursor:pointer;padding:4px 0}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:130;padding:16px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:520px;width:100%;padding:26px;max-height:90vh;overflow:auto;position:relative}
+.modal.lg{max-width:680px}
+.close{position:absolute;top:12px;right:14px;border:0;background:#f1f1f1;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px}
+.modal input,.modal select,.modal textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:6px 0 10px;font-family:inherit}
+.modal label{font-size:12.5px;font-weight:800}
+.drawer{position:fixed;top:0;right:-420px;width:400px;max-width:94vw;height:100dvh;background:#fff;z-index:140;box-shadow:-20px 0 60px rgba(0,0,0,.2);transition:right .3s;display:flex;flex-direction:column}
+.drawer.open{right:0}
+.drawer-head{padding:18px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.drawer-body{flex:1;overflow:auto;padding:16px}
+.drawer-foot{padding:16px;border-top:1px solid #eee}
+.cart-item{display:flex;gap:10px;margin-bottom:12px;border:1px solid #eee;border-radius:12px;padding:10px;align-items:center}
+.cart-item img{width:60px;height:60px;border-radius:10px;object-fit:cover}
+.ship-bar{height:8px;background:#f0ece4;border-radius:10px;overflow:hidden;margin:8px 0}.ship-bar i{display:block;height:100%;background:var(--teal)}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:#1E1B16;color:#fff;padding:13px 22px;border-radius:100px;font-size:13.5px;font-weight:700;z-index:200;transition:transform .3s;max-width:92vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:160;padding:20px;cursor:zoom-out}
+#lightbox.show{display:flex}
+#lightbox img{max-width:94vw;max-height:86vh;border-radius:16px;object-fit:contain;background:#fff}
+#lightbox span{position:absolute;top:16px;right:22px;color:#fff;font-size:30px;font-weight:800}
+.float-btns{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:90}
+.float-btns button{width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;font-size:22px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
+#topBtn{display:none;background:#1E1B16;color:#fff}
+.video-box{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#000;margin-top:12px}
+.video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.err{color:#c0392b;font-size:12px;font-weight:700;display:none}
+/* responsive hardening: no overflow on any screen, fluid grids */
+.prod,.pet,.doc,.svc,.cat-card,.res,.feat,.plan,.catchip,.why div,.trustbar div,.scroll-x,.miova-grid>*,.food-img,.calc,.price-card,.searchbar>*,.book form>div>div{min-width:0}
+.scroll-x{max-width:100%}
+h1,h2{text-wrap:balance}
+.svc-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.cats{grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr))}
+.timeline{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.steps{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.why{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.resources{grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.grid6{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.plans{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.blog3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.contact-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.shop-tools input{flex:1 1 160px;min-width:0}
+.drawer{height:100vh;height:100dvh}
+.testi-slider,.scroll-x{scrollbar-width:thin}
+@media(hover:hover){.prod:hover,.pet:hover,.doc:hover,.res:hover,.feat:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.10)}}
+@media(max-width:560px){
+#userBtn,#registerBtn{display:none}
+.trustbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center}
+.catchip span{min-width:0;flex:1;overflow:hidden}
+.catchip b,.catchip small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.catchip b{font-size:12px}
+.trust-mini{gap:8px;margin-top:16px}
+.tstat{padding:8px 4px;gap:6px;border-radius:14px;flex-direction:column;text-align:center}
+.tico{width:36px;height:36px;flex-basis:36px;font-size:20px}
+.tstat b{font-size:15px}
+.tstat small{font-size:10.5px}
+.float-card{max-width:62vw;overflow:hidden}
+}
+@media(max-width:960px){.miova{background:#FFFBF2}}
+@media(max-width:960px){
+.hero-grid{padding:40px 20px 0}
+.hero-grid,.miova-grid,.adopt-hero,.vet-hero,.listen,.emergency,.book,.app,.health,.ratings{grid-template-columns:1fr}
+.links{display:none}.mobile-btn{display:block}
+.searchbar{grid-template-columns:1fr 1fr}
+.trustbar{border-radius:20px}
+.foot-grid{grid-template-columns:1fr 1fr}
+.float-card{font-size:11px}
+.price-card{position:static;width:100%;margin-top:12px}
+.emergency img{height:240px}
+}
+@media(max-width:560px){
+.searchbar{grid-template-columns:1fr}.find{width:100%}
+.foot-grid{grid-template-columns:1fr}
+.book form>div{grid-template-columns:1fr !important}
+.news{flex-direction:column;align-items:flex-start}
+.topbar{font-size:11px}
+.nav-in{padding:8px 12px}.btn{padding:10px 14px;font-size:12px}
+#helloUser{display:none}
+.catcards{grid-template-columns:1fr 1fr;gap:8px}.catchip{min-height:60px;padding:6px}.catchip img{width:44px;height:44px}
+.float-card{font-size:10.5px;padding:4px 10px 4px 4px}
+.hero-grid{padding-top:28px}
+.modal{padding:20px 16px}
+.testi-slider{grid-auto-columns:minmax(250px,85vw)}
+.emergency img{height:200px}
+.price-card{font-size:13px}
+h1{line-height:1.08}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+</style>
+</head>
+<body>
+<header>
+<div class="topbar">🎉 Grand Opening: <b>20% OFF</b> Grooming + Free Vet Checkup | Code <b>PUPHUB20</b><button type="button" id="copyCodeBtn">Copy code</button><span style="opacity:.7"> • 24/7: (555) 123-4567</span></div>
+<nav class="nav" aria-label="Main"><div class="nav-in">
+<div class="logo" id="logoHome">🐾 PUPHUB</div>
+<div class="links"><a data-go="services">OUR SERVICES</a><a data-go="about">ABOUT US</a><a data-go="shop">PRODUCTS</a><a data-go="adopt">ADOPT</a><a data-go="vet">VET CARE</a><a data-go="contact">CONTACT</a></div>
+<div class="nav-actions">
+<button class="iconbtn" id="cartBtn" aria-label="Open cart">🛒<span id="cartCount">0</span></button>
+<button class="iconbtn" id="userBtn" aria-label="Account">👤</button>
+<span id="helloUser" style="font-size:13px;font-weight:800"></span>
+<button class="btn btn-orange" id="signinBtn">SIGN IN</button>
+<button class="btn btn-orange" id="registerBtn">REGISTER</button>
+<button class="mobile-btn" id="menuBtn" aria-label="Open menu">☰</button>
+</div></div></nav>
+</header>
+<div id="overlay"></div>
+<aside id="mobileMenu" aria-label="Mobile menu">
+<div style="display:flex;justify-content:space-between;align-items:center"><b>🐾 PUPHUB</b><button class="close" id="menuClose" style="position:static">✕</button></div>
+<a data-go="services">Our Services</a><a data-go="about">About Us</a><a data-go="shop">Products</a><a data-go="adopt">Adopt</a><a data-go="vet">Vet Care</a><a data-go="contact">Contact</a>
+<div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-orange" id="mSignin" style="flex:1">Sign In</button><button class="btn btn-outline" id="mReg" style="flex:1">Register</button></div>
+<p style="font-size:12px;color:#888;margin-top:12px">📞 (555) 123-4567 • 8am–9pm</p>
+</aside>
+
+<main>
+<section class="hero" style="padding-top:0"><div class="wrap hero-grid">
+<div>
+<div class="eyebrow">🐾 TRUSTED PET CARE • SINCE 2012</div>
+<h1>Taking care<br>for your Smart Dog&nbsp;!</h1>
+<p class="sub">Human–canine bonding is the relationship between dogs and humans. Grooming, daycare, training, nutrition, adoption &amp; 24/7 vet care — all in one hub. Loved by <b>50,000+ pet parents</b>.</p>
+<div class="hero-cta"><button class="btn btn-orange" data-go="services">EXPLORE MORE →</button><button class="btn btn-outline" id="watchBtn">▶ Watch Our Story</button></div>
+<div class="trust-mini"><div class="tstat"><span class="tico">⭐</span><div><b>4.9/5</b><small>8,200+ reviews</small></div></div><div class="tstat"><span class="tico">🏅</span><div><b>12+</b><small>Years experience</small></div></div><div class="tstat"><span class="tico">🐾</span><div><b>5K+</b><small>Happy pets</small></div></div></div>
+</div>
+<div class="hero-dog">
+<img class="main" id="heroImg" src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&q=80&auto=format&fit=crop" alt="Smart pug puppy looking up" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&q=80&auto=format&fit=crop'">
+<div class="float-card" style="left:0;top:20%"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100&q=60&auto=format&fit=crop" alt="Happy dog thumbnail"> Happy Pup • 4.9★</div>
+<div class="float-card" style="left:2%;top:48%"><img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=100&q=60&auto=format&fit=crop" alt="Cat thumbnail"> Cat Friend • 5.0★</div>
+<div class="float-card" style="right:2%;bottom:10%"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100&q=60&auto=format&fit=crop" alt="Adopted dog thumbnail"> Bella Adopted 🏠</div>
+</div></div>
+<div class="wrap press"><span>AS FEATURED IN:</span><span>🐶 PetCare Weekly</span><span>🏥 Vet Today</span><span>📺 Animal Planet</span><span>⭐ 4.9 Google</span></div>
+<div style="height:30px;background:#fff;border-radius:100% 100% 0 0"></div></section>
+
+<section id="services" class="services"><div class="wrap">
+<h2>Services Category</h2><div class="underline"></div>
+<p style="color:#666;font-size:14px">Tap any service for full price list, duration &amp; instant booking. All include free health check.</p>
+<div class="svc-grid" id="svcGrid"></div>
+<div class="why">
+<div>🏅 <b>Certified team</b><br><small>AAHA-accredited vets &amp; 40+ certified groomers. Background-checked staff.</small></div>
+<div>📹 <b>Live CCTV daycare</b><br><small>Watch your pup play from office. Daily photo report cards.</small></div>
+<div>💰 <b>Transparent pricing</b><br><small>No hidden fees. Free estimates. 30-day service guarantee.</small></div>
+<div>🚗 <b>Free pickup</b><br><small>Free pickup &amp; drop within 5 miles on grooming + daycare.</small></div>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap listen">
+<div class="listen-img"><span>🐾 🐾 🦴</span><br>
+<img id="aboutImg" src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=700&q=80&auto=format&fit=crop" alt="Happy brown dog smiling at camera" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=700&q=80&auto=format&fit=crop'">
+<button class="play" id="learnBtn"><span style="font-size:32px">▶</span>Learn more</button>
+</div>
+<div><div class="eyebrow">ABOUT PUPHUB</div><h2 class="serif" style="font-size:clamp(1.5rem,3.4vw,2.1rem)">Dogs do speak, but only to those who know how to listen.</h2>
+<p style="color:#666;margin:14px 0;line-height:1.7;font-size:14px">We started in 2012 with one salon and one big dream — kinder care for every paw. Today: 12 grooming studios, 24/7 vet hospital, 5-acre daycare farm, certified trainers &amp; nutrition lab. 50,000+ families trust us.</p>
+<ul style="font-size:14px;line-height:2;list-style:none"><li>✔ Cage-free daycare with live CCTV</li><li>✔ Positive-reinforcement training only</li><li>✔ 4.9★ from 8,200+ verified reviews</li></ul>
+<div class="timeline"><div><b>2012</b><br>1 salon opens</div><div><b>2015</b><br>24/7 ER opens</div><div><b>2019</b><br>10,000th adoption</div><div><b>2026</b><br>50,000+ families</div></div><br>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-brown" data-go="vet">Explore More →</button><button class="btn btn-outline" id="storyBtn">Our Story</button></div>
+</div></div></section>
+
+<section id="shop" class="miova"><div class="wrap">
+<div style="font-size:11px;letter-spacing:.22em;font-weight:800">— PREMIUM CAT &amp; DOG NUTRITION • MIOVA</div>
+<div class="miova-grid">
+<div><h1>GOOD FOOD<span style="color:#EB9B3E">.</span><br>HAPPY PURRS<span style="color:#EB9B3E">.</span></h1>
+<p class="sub">Thoughtfully made nutrition for cats &amp; dogs who deserve more. Real salmon &amp; chicken, 42% protein, no fillers. Vet reviewed, AAFCO approved.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn btn-purple" data-go="shopGrid">SHOP FOOD →</button><button class="btn btn-outline" id="nutriBtn">EXPLORE NUTRITION →</button></div>
+<div class="scroll-x"><table class="nutri-table"><tr><th>Recipe</th><th>Protein</th><th>Best for</th></tr><tr><td>🐟 Salmon Recipe</td><td>42%</td><td>Adult cats</td></tr><tr><td>🍗 Chicken Feast</td><td>38%</td><td>Kittens + pups</td></tr><tr><td>🥩 Lamb &amp; Rice</td><td>32%</td><td>Sensitive stomach</td></tr></table></div>
+<div class="calc"><b>🥗 Feeding calculator</b><br><label>Pet: <select id="calcPet"><option value="60">Adult cat (4kg)</option><option value="85">Kitten / Puppy</option><option value="240">Adult dog (15kg)</option></select></label><label> Cups adjust: <input id="calcW" type="number" value="1" min="0.5" max="4" step="0.5" style="width:70px"></label> <button class="btn btn-dark" id="calcBtn" style="padding:9px 16px;min-height:40px">Calculate</button><div id="calcOut" style="margin-top:6px;font-weight:800">≈ 60–70g per day + fresh water</div></div>
+<div style="margin-top:12px;font-size:13px">🛒 Cart: <b id="cartCount2">0</b> items | Loved by <b>25,000+ CATS</b> | <a style="cursor:pointer;text-decoration:underline" id="viewCartLink">View cart</a></div>
+</div>
+<div class="food-img">
+<img class="cat" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=800&q=80&auto=format&fit=crop" alt="Grey tabby cat next to premium pet food" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=80&auto=format&fit=crop'">
+<div class="price-card"><div style="color:#5B50E6;font-weight:800">MIOVA ★ 4.9</div><h4>Salmon Recipe — 5lb</h4><small>Complete Nutrition for Adult Cats • Omega 3&amp;6</small><div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center"><b>$24.99 <s style="color:#aaa">$32</s></b><button class="btn btn-purple" style="padding:9px 16px;min-height:40px" data-add="MIOVA Salmon 5lb|24.99">Add +</button></div><small>🚚 Free delivery over $35</small></div>
+</div></div>
+<div class="trustbar"><div>🐱 25,000+ CATS</div><div>🛡️ Vet Reviewed</div><div>⚡ High Protein</div><div>🍃 No Fillers</div><div>♡ Real Ingredients</div></div>
+<h2 id="shopGrid" style="margin:26px 0 6px">Shop Pet Essentials <button class="btn btn-outline" id="allProdBtn" style="float:right;padding:8px 16px;min-height:40px">View All Products</button></h2>
+<div class="shop-tools"><input id="prodSearch" placeholder="🔍 Search food, toys, shampoo..." aria-label="Search products"><select id="prodSort" aria-label="Sort products"><option value="pop">Sort: Popular</option><option value="low">Price: Low → High</option><option value="high">Price: High → Low</option><option value="rate">Top Rated</option></select></div>
+<div class="catcards" id="catCards"></div>
+<div class="shop4" id="productGrid"></div>
+</div></section>
+
+<section id="adopt" class="adopt"><div class="wrap">
+<div class="adopt-hero">
+<div><h2 class="serif">Every Pet<br>Deserves a <em style="font-style:normal;color:#5F7053">Home</em></h2><p style="margin:10px 0;color:#4a5340">We connect loving hearts with loyal companions. 2,400+ adoptions last year, 98% still home after 1 year.</p>
+<div class="steps" style="margin:14px 0 0"><div><b>1. Match 🔍</b><br><small>Filter below</small></div><div><b>2. Meet 🏠</b><br><small>Free meet &amp; greet</small></div><div><b>3. Check ✔</b><br><small>Home check 48h</small></div><div><b>4. Home 🎉</b><br><small>Kit + free vet visit</small></div></div>
+<div style="display:flex;gap:16px;margin-top:14px;font-size:13px;font-weight:700;flex-wrap:wrap"><span style="cursor:pointer" id="adoptHow">🏠 Adopt — Save a life</span><span style="cursor:pointer" id="supportBtn">💝 Support — Donate</span><span style="cursor:pointer" id="commBtn">👥 Community — Volunteer</span></div>
+</div>
+<img src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=700&q=80&auto=format&fit=crop" alt="Rescue dog and cat lying together on grass waiting for home" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=700&q=80&auto=format&fit=crop'">
+</div>
+<div class="searchbar">
+<div><label for="fType">Animal Type</label><select id="fType"><option>Any Type</option><option>Dog</option><option>Cat</option><option>Rabbit</option></select></div>
+<div><label for="fAge">Age</label><select id="fAge"><option>Any Age</option><option>Baby</option><option>Young</option><option>Adult</option><option>Senior</option></select></div>
+<div><label for="fSize">Size</label><select id="fSize"><option>Any Size</option><option>Small</option><option>Medium</option><option>Large</option></select></div>
+<div><label for="fLoc">Location</label><select id="fLoc"><option>Any Location</option><option>New York</option><option>Los Angeles</option><option>Chicago</option></select></div>
+<button class="find" id="matchBtn">🔍 Find My Match</button>
+</div>
+<h3 style="text-align:center;margin:24px 0 12px">Adoption Categories</h3>
+<div class="cats" id="adoptCats"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin:10px 0;gap:10px;flex-wrap:wrap"><h3>Meet Our Friends ♡ <small id="petCount" style="color:#888"></small></h3><button class="btn btn-outline" id="viewAllBtn" style="padding:8px 16px;min-height:40px">View all pets →</button></div>
+<div class="pets" id="petGrid"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:12px;margin:22px 0" id="happyBox">
+<div class="card" style="background:#EFF2E8;padding:22px"><h3 class="serif">Happy Tails ♡</h3><p id="happyText" style="font-style:italic;font-size:14px;margin:10px 0">“Adopting Bella was the best decision we ever made. She filled our home with joy and endless love.”</p><small id="happyWho">— The Johnson Family, adopted Bella 2024</small><br><br><button class="btn btn-outline" id="happyNext" style="padding:8px 16px;min-height:40px">Next story →</button></div>
+<div class="card" style="background:#FDE6C4;padding:22px"><h3>Help Us Save More Lives</h3><p style="font-size:13px;margin:8px 0">$25 = vaccines for 1 pup • $50 = food for a week • $100 = emergency surgery help.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" id="volBtn2">🐾 Volunteer</button><button class="btn btn-dark" id="donateBtn2">♡ Donate Now</button></div><div style="font-size:13px;margin-top:10px">Progress this month: <b>$18,450 / $25,000</b><div class="ship-bar"><i style="width:74%"></i></div></div></div>
+</div>
+<h3 style="text-align:center">Care &amp; Resources</h3>
+<div class="resources">
+<button class="res" data-res="guides">📖<br><b>Pet Care Guides</b><br><small>Feeding, grooming, vaccines — expert tips.</small></button>
+<button class="res" data-res="training">🐾<br><b>Training &amp; Behavior</b><br><small>Positive training. Free first class Sat 10am.</small></button>
+<button class="res" data-res="health">💙<br><b>Health &amp; Wellness</b><br><small>Vet Q&amp;A weekly. Prevention plans.</small></button>
+<button class="res" data-res="faq">💬<br><b>Adoption FAQ</b><br><small>Fees, process, home check — all answers.</small></button>
+</div>
+<h3 style="text-align:center;margin-top:10px">What Our Community Says <small style="color:#888">⭐ 4.9/5</small></h3>
+<div class="testi-slider" id="testiSlider"></div>
+<div style="text-align:center;margin-top:10px;display:flex;gap:8px;justify-content:center"><button class="btn btn-outline" id="tPrev">‹ Prev</button><button class="btn btn-outline" id="tNext">Next ›</button></div>
+</div></section>
+
+<section id="vet" class="vet"><div class="wrap">
+<div class="vet-hero">
+<div><div class="eyebrow">✨ TRUSTED PET CARE • AAHA ACCREDITED</div><h2>Because Your Pet Deserves the <span style="color:#0E7D6C">Best Care</span></h2>
+<p style="color:#666;margin:12px 0">Compassionate care, expert vets, complete wellness. Same-day appointments, transparent pricing, free estimates.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-teal" data-go="bookForm">Book Appointment</button><button class="btn btn-outline" data-go="careGrid">Our Services</button></div>
+<div class="stats"><span>🏅 <b class="count" data-n="12">12</b>+<br><small>Years Experience</small></span><span>🕒 24/7<br><small>Emergency Care</small></span><span>🐾 <b class="count" data-n="5200">5,200</b>+<br><small>Happy Pets</small></span><span>👨‍⚕️ <b class="count" data-n="18">18</b><br><small>Expert Vets</small></span></div>
+</div>
+<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=700&q=80&auto=format&fit=crop" alt="Family with golden dog and cat at vet clinic" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=700&q=80&auto=format&fit=crop'">
+</div>
+<div style="text-align:center;margin-top:8px"><div class="bill-toggle" role="tablist"><button id="billM" class="active">Monthly</button><button id="billY">Yearly — 2 months FREE</button></div></div>
+<div class="plans" id="planGrid"></div>
+<div style="text-align:center"><div class="eyebrow">WHAT WE OFFER</div><h2>Comprehensive Care<br>For Your Pets</h2><p style="color:#666;font-size:14px">Tap any card for details &amp; price.</p></div><br>
+<div class="grid6" id="careGrid"></div>
+<div class="emergency"><div><h2>24/7 Emergency Pet Care</h2><p style="margin:12px 0;font-size:14px;opacity:.92">ICU, oxygen, surgery on call — average response under 15 mins. Triage FREE for members.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="tel:+15551234567" style="text-decoration:none"><button class="btn btn-outline">📞 Call (555) 123-4567</button></a><button class="btn btn-dark" id="erBtn">📍 Find ER Near Me</button></div></div><img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=700&q=80&auto=format&fit=crop" alt="Veterinarian gently examining a dog" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=700&q=80&auto=format&fit=crop'"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2>Meet Our Veterinarians</h2><div style="display:flex;gap:6px;flex-wrap:wrap" id="docFilters"><button class="chip active" data-d="All">All</button><button class="chip" data-d="Surgery">Surgery</button><button class="chip" data-d="Cat">Cats</button><button class="chip" data-d="Emergency">ER</button></div></div><br>
+<div class="docs" id="docGrid"></div>
+<div style="text-align:center;margin-top:10px"><button class="btn btn-outline" id="docBtn">View All Doctors</button></div>
+<div class="health"><div><h3>Pet Health Tips 💚</h3><p style="font-size:14px;opacity:.92;margin:8px 0">Exercise + balanced diet + fresh water + yearly check = longer, happier life. Small habits, big difference.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px"><button class="btn btn-outline" id="tipsBtn">Learn More Tips</button><button class="btn btn-dark" id="weeklyBtn">Get Weekly Tips</button></div></div><div style="text-align:center;font-size:90px" aria-hidden="true">🐈</div></div>
+<h2>From Our Blog <button class="btn btn-outline" id="allBlogBtn" style="float:right">View All Articles</button></h2><br>
+<div class="blog3" id="blogGrid"></div>
+<h2 style="margin-top:26px">Happy Moments Gallery <small style="color:#888;font-size:13px">— tap to zoom</small></h2>
+<div class="gallery" id="gallery"></div>
+<div class="app"><div><h2>Download Our PetCare App 📱</h2><ul style="font-size:14px;line-height:2;list-style:none"><li>✔ Book appointments in 30 seconds</li><li>✔ Vaccine alerts &amp; live daycare cam</li><li>✔ Health records + weight tracking</li><li>✔ 4.8★ • 100K+ downloads</li></ul><br><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-dark" id="appIos">🍎 App Store</button><button class="btn btn-dark" id="appAnd">▶ Google Play</button></div></div><div style="text-align:center;font-size:100px" aria-hidden="true">📱🐶🐱</div></div>
+<div style="text-align:center;margin:10px 0"><small style="letter-spacing:.15em;font-weight:800;color:#888">TRUSTED BY PET PARENTS</small><div style="display:flex;justify-content:center;gap:26px;margin-top:10px;flex-wrap:wrap;font-size:13px;font-weight:700"><span>✨ Quality Care</span><span>👨‍⚕️ Expert Vets</span><span>🐾 Happy Pets</span><span>🕒 24/7 Support</span><span>💰 Affordable</span></div></div>
+<div class="ratings"><div><h3>⭐ 4.9 out of 5 <small style="color:#888">• 8,200+ reviews</small></h3><div style="margin-top:10px;font-size:13px">5★<div class="bar"><i style="width:86%"></i></div>4★<div class="bar"><i style="width:10%;background:#7C8E6F"></i></div>3★<div class="bar"><i style="width:3%;background:#C49A6C"></i></div></div></div><div><h3>Why parents stay</h3><ul style="font-size:13.5px;line-height:2"><li>💬 “CCTV daycare — I watch from office!” — Rahim</li><li>💉 “Vaccines done in 20 mins, report in app.” — Sara</li><li>🏠 “Adoption team called for 6 months after!” — Daniel</li></ul></div></div>
+<div class="book" id="bookForm">
+<div><h2>Book an Appointment Online</h2><p style="font-size:13px;color:#666;margin:8px 0">Confirmation by SMS in ~5 mins. Selected plan: <b id="selectedPlan">None — pay per visit</b></p><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&q=80&auto=format&fit=crop" alt="Smiling brown puppy running in park" loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:4/2.6;object-fit:cover;object-position:center 25%" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&q=80&auto=format&fit=crop'"><br><br><div class="card" style="padding:14px;font-size:13px">🕘 Mon–Sat 8am–9pm • Sun 9am–6pm • ER 24/7<br>📍 123 Pet Street, New York • 📞 (555) 123-4567</div>
+<div class="scroll-x"><table class="hours"><tr><td>Mon – Fri</td><td>8:00am – 9:00pm</td></tr><tr><td>Saturday</td><td>9:00am – 7:00pm</td></tr><tr><td>Sunday</td><td>9:00am – 6:00pm</td></tr><tr><td>Emergency</td><td><b>24/7 — always open</b></td></tr></table></div>
+</div>
+<form id="bookFormEl" novalidate>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div><label for="bName">Your Name *</label><input id="bName" autocomplete="name" placeholder="e.g. Sarah"><div class="err" id="eName">Enter your name</div></div>
+<div><label for="bPhone">Phone *</label><input id="bPhone" inputmode="tel" autocomplete="tel" placeholder="+1 555..."><div class="err" id="ePhone">Enter valid phone (7+ digits)</div></div>
+<div><label for="bPet">Pet Name *</label><input id="bPet" placeholder="e.g. Milo"><div class="err" id="ePet">Enter pet name</div></div>
+<div><label for="bType">Pet Type</label><select id="bType"><option>Dog</option><option>Cat</option><option>Bird</option><option>Rabbit</option><option>Other</option></select></div>
+<div><label for="bService">Service</label><select id="bService"><option>Grooming ($29+)</option><option>Vaccination ($25+)</option><option>Checkup ($35)</option><option>Dental ($99+)</option><option>Training ($49/session)</option><option>Emergency</option></select></div>
+<div><label for="bDoc">Doctor</label><select id="bDoc"><option>First available</option><option>Dr. Olivia Bennett</option><option>Dr. Liam Anderson</option><option>Dr. Sophia Martinez</option></select></div>
+<div><label for="bDate">Date *</label><input id="bDate" type="date"><div class="err" id="eDate">Pick today or later</div></div>
+<div><label for="bTime">Time *</label><input id="bTime" type="time"><div class="err" id="eTime">Pick a time</div></div>
+</div><label for="bNote">Notes</label><textarea id="bNote" rows="2" placeholder="Breed, age, symptoms..."></textarea>
+<button class="btn btn-teal" style="width:100%" type="submit">Confirm Booking →</button>
+</form></div>
+<div class="faq"><h2 style="text-align:center">Frequently Asked Questions</h2><div id="faqList" style="margin-top:12px"></div></div>
+<div id="contact"><h2>Visit, Call or Message Us</h2>
+<div class="contact-grid">
+<div>📍<br><b>Visit Us</b><br><small>123 Pet Street, NY 10001<br>Free parking • Pet-friendly</small><br><button class="btn btn-outline" id="dirBtn" style="margin-top:8px;padding:8px 16px">Get Directions</button></div>
+<div>📞<br><b>Call / WhatsApp</b><br><small>(555) 123-4567 (24/7 ER)<br>(555) 987-6543 (Bookings)</small><br><a href="tel:+15551234567"><button class="btn btn-outline" style="margin-top:8px;padding:8px 16px">Call Now</button></a></div>
+<div>✉️<br><b>Email Us</b><br><small>hello@puphub.pet<br>Reply within 2 hours</small><br><button class="btn btn-outline" id="msgBtn" style="margin-top:8px;padding:8px 16px">Send Message</button></div>
+</div>
+<div class="map-wrap"><iframe title="PUPHUB location map — 123 Pet Street New York" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.02%2C40.70%2C-73.97%2C40.74&amp;layer=mapnik&amp;marker=40.72%2C-73.995"></iframe></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap news">
+<div style="display:flex;gap:14px;align-items:center"><span style="font-size:60px" aria-hidden="true">🐶</span><div><h2 class="serif">Stay Connected</h2><p style="font-size:13px;opacity:.9">Stories, adoption updates &amp; 10% off first order. No spam.</p></div></div>
+<div><input id="email" type="email" placeholder="Enter your email" aria-label="Email for newsletter"> <button class="btn btn-dark" id="subBtn">Subscribe</button><div class="err" id="eEmail" style="color:#ffe08a">Enter a valid email</div></div>
+</div>
+<div class="foot-grid wrap">
+<div><div class="logo">🐾 PAW &amp; PURPOSE</div><p style="font-size:12px;color:#666;margin:8px 0">Non-profit partner since 2015. Every pet loved, respected, second chance.</p><div style="display:flex;gap:8px"><button class="chip" data-soc="Facebook">f</button><button class="chip" data-soc="Instagram">📸</button><button class="chip" data-soc="X">𝕏</button><button class="chip" data-soc="YouTube">▶</button></div></div>
+<div><b>Adopt</b><a data-go="adopt">All Pets</a><a data-resf="faq">Adoption Process</a><a id="evBtn">Adoption Events</a></div>
+<div><b>Get Involved</b><a id="volF">Volunteer</a><a id="fosF">Foster</a><a id="donF">Donate</a></div>
+<div><b>Resources</b><a data-resf="guides">Pet Care Guides</a><a data-resf="training">Training</a><a data-resf="health">Health &amp; Wellness</a></div>
+<div><b>About Us</b><a id="storyF">Our Story</a><a data-go="vet">Our Team</a><a id="contactF">Contact Us</a><br><small>© <span id="yr">2026</span> Paw &amp; Purpose • 💳 Visa MC bKash • Privacy • Terms</small></div>
+</div></footer>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox" role="dialog" aria-modal="true"><button class="close" id="modalX" aria-label="Close">✕</button><div id="modalContent"></div></div></div>
+<div class="drawer" id="cartDrawer" aria-label="Shopping cart"><div class="drawer-head"><span>🛒 Your Cart (<span id="drawerCount">0</span>)</span><button class="close" id="cartX" style="position:static">✕</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-foot"><div id="shipMsg" style="font-size:12.5px;font-weight:700">Add $35 for FREE delivery</div><div class="ship-bar"><i id="shipFill" style="width:0%"></i></div><div style="display:flex;justify-content:space-between;font-weight:800;margin:8px 0"><span>Total</span><span id="cartTotal">$0.00</span></div><div style="display:flex;gap:8px"><input id="coupon" placeholder="Coupon (try PUPHUB20)" aria-label="Coupon code" style="flex:1;padding:11px;border-radius:10px;border:1px solid #ddd"><button class="btn btn-outline" id="couponBtn">Apply</button></div><br><button class="btn btn-purple" id="checkoutBtn" style="width:100%">Checkout →</button></div></div>
+<div id="toast" role="status"></div>
+<div id="lightbox"><span>✕</span><img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Enlarged pet photo"></div>
+<div class="float-btns"><button id="waBtn" title="Chat on WhatsApp" style="background:#25D366">💬</button><button id="topBtn" title="Back to top">↑</button></div>
+
+<script>
+'use strict';
+var FALLBACK_DOG='https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&q=70&auto=format&fit=crop';
+var FALLBACK_CAT='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=70&auto=format&fit=crop';
+function $(id){return document.getElementById(id)}
+function go(id){var el=$(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._x);t._x=setTimeout(function(){t.classList.remove('show')},2600)}
+function lockScroll(on){document.body.style.overflow=on?'hidden':''}
+function openModal(html,lg){$('modalContent').innerHTML=html;$('modalBox').classList.toggle('lg',!!lg);$('modalBg').classList.add('show');lockScroll(true);var f=$('modalContent').querySelector('input,select,textarea,button');if(f){try{f.focus()}catch(e){}}}
+function closeModal(){$('modalBg').classList.remove('show');lockScroll(false)}
+function viewFull(src){if(!src)return;$('lightboxImg').src=src;$('lightbox').classList.add('show');lockScroll(true)}
+function closeLightbox(){$('lightbox').classList.remove('show');if(!$('modalBg').classList.contains('show')&&!$('cartDrawer').classList.contains('open'))lockScroll(false)}
+function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function read(k,d){try{var v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}}
+document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g){go(g.getAttribute('data-go'));closeMobile()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLightbox();closeModal();toggleCart(false);closeMobile()}});
+$('modalX').onclick=closeModal;$('modalBg').addEventListener('click',function(e){if(e.target.id==='modalBg')closeModal()});
+$('lightbox').onclick=closeLightbox;
+// mobile menu
+function closeMobile(){$('mobileMenu').classList.remove('open');$('overlay').classList.remove('show');if(!$('modalBg').classList.contains('show'))lockScroll(false)}
+$('menuBtn').onclick=function(){$('mobileMenu').classList.add('open');$('overlay').classList.add('show');lockScroll(true)};
+$('menuClose').onclick=closeMobile;$('overlay').onclick=function(){closeMobile();toggleCart(false)};
+document.querySelectorAll('#mobileMenu [data-go]').forEach(function(a){a.addEventListener('click',closeMobile)});
+$('logoHome').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+$('copyCodeBtn').onclick=function(){var c='PUPHUB20';if(navigator.clipboard){navigator.clipboard.writeText(c).then(function(){toast('Code PUPHUB20 copied! 🎉')},function(){toast('Code: PUPHUB20')})}else{toast('Code: PUPHUB20')}};
+window.addEventListener('scroll',function(){$('topBtn').style.display=window.scrollY>600?'block':'none'},{passive:true});
+$('topBtn').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+$('waBtn').onclick=function(){toast('Opening WhatsApp chat... (555) 123-4567 💬')};
+// AUTH
+function openAuth(mode){openModal('<h2>'+(mode==='signin'?'Welcome back! 🐾':'Join PUPHUB 🎉')+'</h2><p style="color:#666;font-size:13px;margin:6px 0 12px">'+(mode==='signin'?'Sign in for bookings, cart & adoption tracking.':'Free account • 10% off first order • vaccine reminders.')+'</p>'
++(mode==='register'?'<label>Full Name</label><input id="aName" autocomplete="name" placeholder="Sarah">':'')
++'<label>Email</label><input id="aEmail" type="email" autocomplete="email" placeholder="you@mail.com"><div class="err" id="eAuth">Enter a valid email + 4-char password</div><label>Password</label><input id="aPass" type="password" autocomplete="'+(mode==='signin'?'current-password':'new-password')+'" placeholder="••••••••">'
++'<button class="btn" style="background:#1E1B16;color:#fff;width:100%;margin-top:6px" id="authGo">'+(mode==='signin'?'Sign In →':'Create Account →')+'</button>'
++'<p style="font-size:12px;margin-top:10px;text-align:center">'+(mode==='signin'?'No account? <a style="cursor:pointer;color:#EB9B3E" id="swReg">Register</a>':'Have account? <a style="cursor:pointer;color:#EB9B3E" id="swIn">Sign in</a>')+'</p>');
+if($('swReg'))$('swReg').onclick=function(){openAuth('register')};if($('swIn'))$('swIn').onclick=function(){openAuth('signin')};
+$('authGo').onclick=function(){doAuth(mode)}}
+function doAuth(mode){var e=$('aEmail').value.trim(),p=$('aPass').value;if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)||p.length<4){$('eAuth').style.display='block';return}var n=mode==='register'?(($('aName')&&$('aName').value.trim())||e.split('@')[0]):e.split('@')[0];store('user',n);setUser(n);closeModal();toast(mode==='signin'?'Welcome back, '+n+'! 🐶':'Account created! Code: WELCOME10 🎉')}
+function setUser(n){if(!n)return;$('helloUser').textContent='Hi, '+n+'!';$('signinBtn').style.display='none'}
+setUser(read('user',null));
+$('signinBtn').onclick=function(){openAuth('signin')};$('registerBtn').onclick=function(){openAuth('register')};
+$('mSignin').onclick=function(){closeMobile();openAuth('signin')};$('mReg').onclick=function(){closeMobile();openAuth('register')};
+$('userBtn').onclick=function(){var u=read('user',null);if(u){toast('Signed in as '+u+' 👤')}else{openAuth('signin')}};
+// VIDEO / STORY / NUTRITION
+$('watchBtn').onclick=openVideo;$('learnBtn').onclick=openVideo;$('heroImg').onclick=function(){viewFull(this.src)};$('aboutImg').onclick=function(){viewFull(this.src)};
+function openVideo(){openModal('<h2>Our Story in 60 seconds 🎬</h2><div class="video-box"><iframe src="https://www.youtube.com/embed/a6KGPBflhiM?autoplay=1&rel=0" title="PUPHUB story video" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><p style="font-size:13px;color:#555;margin-top:10px">Cage-free daycare, AAHA vet hospital &amp; 2,400+ happy adoptions last year.</p>',true)}
+function openStory(){openModal('<h2>Our Story — Since 2012 🏠</h2><p style="font-size:14px;line-height:1.7;color:#444;margin-top:8px">Started by Dr. Olivia with one grooming table. Now 3 locations, 18 vets, 5-acre farm daycare, nutrition lab &amp; non-profit adoption wing.<br><br><b>Milestones:</b><br>• 2015 — 24/7 ER opened<br>• 2019 — 10,000th adoption<br>• 2023 — MIOVA nutrition launched<br>• 2026 — 50,000+ families, 4.9★ rating</p>',true)}
+$('storyBtn').onclick=openStory;$('storyF').onclick=openStory;
+function openNutrition(){openModal('<h2>Nutrition Guide 🥗</h2><div class="scroll-x"><table class="nutri-table"><tr><th>Pet</th><th>Food</th><th>Qty/day</th></tr><tr><td>Adult cat 4kg</td><td>MIOVA Salmon</td><td>60–70g + water</td></tr><tr><td>Kitten</td><td>Chicken Feast</td><td>80–90g, 3 meals</td></tr><tr><td>Adult dog 15kg</td><td>Lamb &amp; Rice</td><td>220–260g</td></tr></table></div><p style="font-size:13px;color:#555;margin-top:8px">Transition over 7 days. Free diet consult: (555) 123-4567</p><button class="btn" style="background:#5B50E6;color:#fff;width:100%;margin-top:8px" id="nutShop">Shop Nutrition →</button>',true);$('nutShop').onclick=function(){closeModal();toggleCart(true)}}
+$('nutriBtn').onclick=openNutrition;
+$('calcBtn').onclick=function(){var base=parseFloat($('calcPet').value)||60,q=parseFloat($('calcW').value)||1;var g=Math.round(base*q);$('calcOut').textContent='≈ '+g+'g per day + fresh water • Split into 2 meals'};
+$('viewCartLink').onclick=function(){toggleCart(true)};
+// SERVICES
+var SERVICES=[
+{k:'groom',e:'💈',t:'Grooming',d:'Bath, haircut, nails',p:'From $29 • 60–90 min',full:'Full bath with oatmeal shampoo, breed cut, nail trim, ear clean, teeth brush. Small $29 / Medium $39 / Large $55. Free bow-tie! 🎀'},
+{k:'health',e:'🦴',t:'Healthcare',d:'Vet + vaccines',p:'Checkup $35',full:'Wellness exam, core vaccines (rabies, DHPP, FVRCP), deworming, microchip $25. Same-day reports in app.'},
+{k:'day',e:'🐕‍🦺',t:'Daycare',d:'Cage-free fun',p:'$25/day • CCTV',full:'5-acre farm, splash pool, nap rooms, live camera. Half-day $15, full-day $25, monthly $399. Trial day FREE.'},
+{k:'train',e:'🦮',t:'Training',d:'Obedience + puppy',p:'$49/session',full:'Puppy basics (4 wks $149), obedience, leash manners, behavior fix. First class FREE, positive methods only.'},
+{k:'hyg',e:'🛁',t:'Hygienic care',d:'Dental + spa',p:'From $19',full:'Dental scaling $99, de-shedding, flea bath, paw balm. Monthly spa membership $39.'}];
+$('svcGrid').innerHTML=SERVICES.map(function(s,i){return '<button class="svc" data-svc="'+i+'"><span>'+s.e+'</span><b>'+s.t+'</b><br><small>'+s.d+'<br>'+s.p+'</small></button>'}).join('');
+document.querySelectorAll('[data-svc]').forEach(function(b){b.onclick=function(){openService(parseInt(b.getAttribute('data-svc'),10))}});
+function openService(i){var s=SERVICES[i];openModal('<div style="font-size:50px">'+s.e+'</div><h2>'+s.t+'</h2><p style="color:#EB9B3E;font-weight:800">'+s.p+'</p><p style="font-size:14px;color:#444;margin:10px 0;line-height:1.6">'+s.full+'</p><button class="btn" style="background:#C49A6C;color:#fff;width:100%" id="svcBook">Book '+s.t+' →</button>');$('svcBook').onclick=function(){closeModal();go('bookForm');var map=['Grooming ($29+)','Vaccination ($25+)','Checkup ($35)','Training ($49/session)','Dental ($99+)'];var sel=$('bService');for(var j=0;j<sel.options.length;j++){if(sel.options[j].text.indexOf(map[i].split(' ')[0])===0){sel.selectedIndex=j;break}}toast(s.t+' selected in booking form!')}};
+// PRODUCTS + CART — 20 products, 20 unique photos, full details
+var U=function(id){return 'https://images.unsplash.com/photo-'+id+'?w=500&q=70&auto=format&fit=crop'};
+var FBL=['https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/1se.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/dht.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/9ut.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/2le.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/eij.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/0VDLLByGi.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/a87.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/TOozwr2OD.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/MjAyNTY4Ng.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/nNG4PzUzN.jpg','https://images.dog.ceo/breeds/kuvasz/n02104029_3505.jpg','https://images.dog.ceo/breeds/terrier-bedlington/n02093647_2156.jpg','https://images.dog.ceo/breeds/terrier-dandie/n02096437_842.jpg','https://images.dog.ceo/breeds/saluki/n02091831_55.jpg','https://images.dog.ceo/breeds/terrier-scottish/n02097298_1319.jpg','https://images.dog.ceo/breeds/sheepdog-shetland/n02105855_14781.jpg','https://images.dog.ceo/breeds/coonhound/n02089078_1951.jpg','https://images.dog.ceo/breeds/terrier-lakeland/n02095570_838.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/cej.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/MTk0MzgzOA.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/c54.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/1do.png','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/e0r.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/b49.jpg','https://images.dog.ceo/breeds/terrier-dandie/n02096437_1614.jpg','https://images.dog.ceo/breeds/dingo/n02115641_14084.jpg','https://images.dog.ceo/breeds/schnauzer-giant/n02097130_1828.jpg','https://images.dog.ceo/breeds/bullterrier-staffordshire/n02093256_1487.jpg','https://images.dog.ceo/breeds/leonberg/n02111129_3770.jpg','https://images.dog.ceo/breeds/vizsla/n02100583_2736.jpg','https://images.dog.ceo/breeds/spaniel-blenheim/n02086646_3053.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Boston_terrier_with_toy.jpg/500px-Boston_terrier_with_toy.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cat_playing_with_toy_mouse.jpg/500px-Cat_playing_with_toy_mouse.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Czech_Shepherd_playing.jpg/500px-Czech_Shepherd_playing.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Dog_Toy_%281603927038%29.jpg/500px-Dog_Toy_%281603927038%29.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Hente_-_cat_with_toy_in_box.jpg/500px-Hente_-_cat_with_toy_in_box.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Blue_dog_bone_toy.JPG/500px-Blue_dog_bone_toy.JPG','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/2020-04-14_%E2%80%94_Cat_playing_with_ball_chaser_toy.jpg/500px-2020-04-14_%E2%80%94_Cat_playing_with_ball_chaser_toy.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Puppy_playing_with_a_toy_%28Unsplash%29.jpg/500px-Puppy_playing_with_a_toy_%28Unsplash%29.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Miyako_is_playing_with_a_fishing-rod_toy_%287756356192%29.jpg/500px-Miyako_is_playing_with_a_fishing-rod_toy_%287756356192%29.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Dog_playing_with_a_Christmas_present.jpg/500px-Dog_playing_with_a_Christmas_present.jpg','https://images.dog.ceo/breeds/greyhound-italian/n02091032_3875.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Tabby_Cat_with_Toy_Mouse.jpg/500px-Tabby_Cat_with_Toy_Mouse.jpg','https://images.dog.ceo/breeds/briard/n02105251_4802.jpg','https://images.dog.ceo/breeds/bullterrier-staffordshire/n02093256_5646.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Black_kitten_playing_with_a_toy.jpg/500px-Black_kitten_playing_with_a_toy.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Ellie_playing_with_her_mouse._%2819195686924%29.jpg/500px-Ellie_playing_with_her_mouse._%2819195686924%29.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Day8_cat_attack.jpg/500px-Day8_cat_attack.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Flirt_pole.JPG/500px-Flirt_pole.JPG','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/f2.jpg','https://images.dog.ceo/breeds/bluetick/n02088632_793.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Grooming_Poodle.jpg/500px-Grooming_Poodle.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Pet_grooming_51.jpg/500px-Pet_grooming_51.jpg','https://images.dog.ceo/breeds/kuvasz/n02104029_2417.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Dog_Stylin%27_%283406880422%29.jpg/500px-Dog_Stylin%27_%283406880422%29.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/1u3.jpg','https://images.dog.ceo/breeds/collie/n02106030_15169.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/akq.jpg','https://images.dog.ceo/breeds/appenzeller/n02107908_1235.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/381.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/BDb8ZXb1v.jpg','https://images.dog.ceo/breeds/terrier-lakeland/n02095570_4226.jpg','https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/MTU4NjcyMg.jpg','https://images.dog.ceo/breeds/lhasa/n02098413_2639.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Dog_bath_R%C3%B8m%C3%B8_camping.jpg/500px-Dog_bath_R%C3%B8m%C3%B8_camping.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/TIKITA-TOILETTAGE-2.jpg/500px-TIKITA-TOILETTAGE-2.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Shihitzu.jpg/500px-Shihitzu.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Lorca_dog_grooming_station.jpg/500px-Lorca_dog_grooming_station.jpg','https://images.dog.ceo/breeds/kelpie/n02105412_3779.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/1951_grooming.jpg/500px-1951_grooming.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Coconut_the_rabbit_01.jpg/500px-Coconut_the_rabbit_01.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavia_porcellus%2C_Yumemigasaki_Zoo.jpg/500px-Cavia_porcellus%2C_Yumemigasaki_Zoo.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Hamster_pet.jpg/500px-Hamster_pet.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Domestic_mini_lop_rabbit_standing_on_its_hind_feet.jpg/500px-Domestic_mini_lop_rabbit_standing_on_its_hind_feet.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Pet_hamster_two_youngs.jpg/500px-Pet_hamster_two_youngs.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Holly_the_rabbit_01.jpg/500px-Holly_the_rabbit_01.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Caviidae_Cavia_porcellus_1.jpg/500px-Caviidae_Cavia_porcellus_1.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/A_pet_hamster_named_Peach.jpg/500px-A_pet_hamster_named_Peach.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Peaches_the_rabbit_02.jpg/500px-Peaches_the_rabbit_02.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Conill_B%C3%A9lier.jpg/500px-Conill_B%C3%A9lier.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Peking_Rabbits_Pet_shop-20131231-RM-110142.jpg/500px-Peking_Rabbits_Pet_shop-20131231-RM-110142.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Baby_Hamster_-_2_Weeks_Old.jpg/500px-Baby_Hamster_-_2_Weeks_Old.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Foto_Kelinci_Fuzzy_Lop_oleh_Heru_Qland_2021.jpg/500px-Foto_Kelinci_Fuzzy_Lop_oleh_Heru_Qland_2021.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Mini_lop.jpg/500px-Mini_lop.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Syrian_hamster_on_blanket.jpg/500px-Syrian_hamster_on_blanket.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Lopeared_rabbit_in_Artis_themepark%2C_South_Korea.jpg/500px-Lopeared_rabbit_in_Artis_themepark%2C_South_Korea.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Cochon_d%27Inde_%28Cavia_porcellus%29_%281%29.jpg/500px-Cochon_d%27Inde_%28Cavia_porcellus%29_%281%29.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Heimtier_004_2023_08_26.jpg/500px-Heimtier_004_2023_08_26.jpg','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Cobaya_%28Cavia_porcellus%29%2C_Tierpark_Hellabrunn%2C_M%C3%BAnich%2C_Alemania%2C_2012-06-17%2C_DD_01.JPG/500px-Cobaya_%28Cavia_porcellus%29%2C_Tierpark_Hellabrunn%2C_M%C3%BAnich%2C_Alemania%2C_2012-06-17%2C_DD_01.JPG','https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Guinea_pig_%28Cavia_porcellus%29.jpg/500px-Guinea_pig_%28Cavia_porcellus%29.jpg'];
+var F=function(kw,lock){return FBL[lock-101]||FALLBACK_DOG};
+var PRODUCTS=[
+{n:'MIOVA Salmon Recipe 5lb',p:24.99,old:32,img:U('1568640347023-a616a30bc3bd'),tag:'Bestseller',cat:'Cat Food',unit:'5 lb bag • 42% protein',rate:4.9,rev:2314,stock:40,desc:'Wild-caught salmon, sweet potato &Omega 3+6 for shiny coat and strong muscles. Grain-optional, no fillers.',spec:'42% protein • Taurine + prebiotics • AAFCO adult maintenance'},
+{n:'MIOVA Chicken Feast 3lb',p:19.99,old:24.99,img:U('1589924691995-400dc9ecc119'),tag:'Kitten',cat:'Cat Food',unit:'3 lb bag • 38% protein',rate:4.8,rev:1187,stock:32,desc:'Farm chicken + egg + DHA for kittens and small pups. Tiny kibble, easy to chew, gentle on tummy.',spec:'38% protein • DHA for brain • 3 small meals/day'},
+{n:'Oatmeal Calm Shampoo 16oz',p:14.99,old:0,img:U('1556228720-195a672e8a03'),tag:'Grooming',cat:'Care',unit:'16 oz • pH 7 balanced',rate:4.9,rev:3421,stock:55,desc:'Soap-free oatmeal + aloe. Stops itching, softens coat, puppy-safe tearless formula with light vanilla scent.',spec:'pH-balanced • Tearless • Lasts ~24 washes'},
+{n:'Squeaky Toy Bundle (5pc)',p:9.99,old:14.99,img:U('1591946614720-90a587da4a36'),tag:'Fun',cat:'Fun',unit:'5 toys • non-toxic',rate:4.7,rev:986,stock:70,desc:'Squeaky ball, rope, plush elephant, rubber bone + frisbee. Reinforced stitching for light-medium chewers.',spec:'Non-toxic • Machine washable • Supervised play'},
+{n:'Premium Dog Food 10lb',p:34.99,old:42,img:'https://images.dog.ceo/breeds/beagle/n02088364_14663.jpg',tag:'Dog',cat:'Dog Food',unit:'10 lb • lamb & rice',rate:4.8,rev:1754,stock:28,desc:'Grass-fed lamb, brown rice & veggies. Sensitive-stomach friendly with glucosamine for joints.',spec:'32% protein • Glucosamine • No corn/wheat/soy'},
+{n:'Odor-Lock Cat Litter 14lb',p:16.99,old:0,img:U('1511044568932-338cba0ad803'),tag:'Cat',cat:'Cat',unit:'14 lb • clumping',rate:4.7,rev:2210,stock:44,desc:'Activated charcoal + tight clumps, 14-day odor control. 99% dust-free, paw-soft texture cats love.',spec:'14-day odor lock • Dust-free • Scoop daily'},
+{n:'Dental Chews 30ct',p:12.99,old:16.99,img:U('1601758228041-f3b2795255f1'),tag:'Health',cat:'Care',unit:'30 chews • mint',rate:4.8,rev:1533,stock:60,desc:'VOHC-accepted chews scrub plaque, freshen breath 12 hours. Daily 1 chew = cleaner teeth in 28 days.',spec:'Reduces tartar • Mint breath • Vet recommended'},
+{n:'Cozy Donut Bed (M)',p:39.99,old:55,img:U('1537151625747-768eb6cf92b2'),tag:'Home',cat:'Dog',unit:'Medium 30in • washable',rate:4.9,rev:874,stock:15,desc:'Self-warming plush donut hugs anxious pets. Raised rim supports neck — 70% calmer sleep in week 1.',spec:'Machine washable • Non-slip base • Fits up to 25 lb'},
+{n:'Wild Salmon Oil 16oz',p:18.99,old:0,img:U('1574158622682-e40e69881006'),tag:'Skin+Coat',cat:'Cat',unit:'16 oz pump • 90-day',rate:4.9,rev:1102,stock:36,desc:'One pump a day = show coat. EPA/DHA + vitamin E reduce shedding and dry flakes in 3 weeks.',spec:'EPA/DHA • Pump included • All life stages'},
+{n:'Kitten Starter Kit',p:29.99,old:39.99,img:U('1495360010541-f48722b34f7d'),tag:'Newborn',cat:'Cat',unit:'Food + litter + toy',rate:4.8,rev:643,stock:22,desc:'Everything for week one: 1.5lb chicken kibble, 7lb litter, feather wand, bowl + care booklet.',spec:'Save $10 vs separate • Vet checklist inside'},
+{n:'Puppy Training Treats 8oz',p:8.99,old:0,img:U('1591160690555-5debfba289f0'),tag:'Training',cat:'Dog',unit:'8 oz • 3 kcal/bite',rate:4.9,rev:2876,stock:80,desc:'Pea-sized soft bites trainers love. Chicken + peanut butter, 3 kcal each — reward without overfeeding.',spec:'3 kcal/treat • 500+ rewards/bag • Pouch-friendly'},
+{n:'Golden Senior Food 8lb',p:32.99,old:0,img:U('1477884213360-7e9d7dcc1e48'),tag:'Senior 7+',cat:'Dog Food',unit:'8 lb • joint+ heart',rate:4.8,rev:912,stock:19,desc:'Lower fat + L-carnitine keeps seniors lean. Added taurine, CoQ10 and soft kibble for old teeth.',spec:'Joint + heart support • Easy-chew kibble'},
+{n:'Skyline Scratcher Tower',p:49.99,old:69.99,img:U('1511275539165-cc46b1ee89bf'),tag:'Cat',cat:'Cat',unit:'32in • sisal + perch',rate:4.7,rev:538,stock:9,desc:'Sisal posts + top perch + hideaway. Saves sofas — 9/10 cats switch in 5 days (catnip included).',spec:'Tool-free 15-min setup • Holds 15 lb'},
+{n:'Trail Adventure Leash 6ft',p:16.99,old:0,img:U('1548199973-03cce0bbc87b'),tag:'Walk',cat:'Dog',unit:'6 ft • reflective',rate:4.8,rev:1345,stock:48,desc:'Climbing-rope leash with padded handle + traffic loop. Reflective threads for night walks.',spec:'360° swivel clip • Chew-resistant • Washable'},
+{n:'Calm Anxiety Blanket',p:22.99,old:29.99,img:U('1546238232-20216dec9f72'),tag:'Calm',cat:'Dog',unit:'40x30in • weighted feel',rate:4.7,rev:721,stock:26,desc:'Gentle pressure + lavender-free calming fibers ease thunder & fireworks stress. Crate or couch ready.',spec:'Breathable • Washable • Vet behaviorist tip'},
+{n:'Timothy Hay Blend 4lb',p:13.99,old:0,img:U('1585110396000-c9ffd4e4b308'),tag:'Rabbit',cat:'Small Pet',unit:'4 lb • 2nd cut',rate:4.9,rev:486,stock:33,desc:'Soft 2nd-cut timothy + oat hay. Long strands keep teeth trimmed and digestion moving.',spec:'Hand-packed • Dust-extracted • Resealable'},
+{n:'Small-Pet Vitamin Drops',p:11.99,old:0,img:U('1425082661705-1834bfd09dca'),tag:'Health',cat:'Small Pet',unit:'2 oz • 60-day',rate:4.6,rev:312,stock:41,desc:'Tasteless C + D3 drops for hamsters, rabbits & guinea pigs. 2 drops in water daily.',spec:'No sugar • 60-day supply • Vet formulated'},
+{n:'Slicker Brush Pro',p:12.99,old:17.99,img:U('1519052537078-e6302a4968d4'),tag:'Grooming',cat:'Care',unit:'Self-cleaning pins',rate:4.8,rev:1968,stock:52,desc:'One-click retractable pins lift loose fur without scratching. Undercoat out, shine stays.',spec:'Self-cleaning • All coat types • Weekly use'},
+{n:'Feather Wand Chaser',p:7.99,old:0,img:U('1526336024174-e58f5cdd8e13'),tag:'Play',cat:'Fun',unit:'36in • 2 refills',rate:4.8,rev:1755,stock:66,desc:'Real-feel feathers + crinkle + bell. Triggers hunt-chase-pounce in even lazy cats. 2 refills inside.',spec:'36in wand • Replaceable heads • Daily 10-min play'},
+{n:'Beach Day Adventure Kit',p:21.99,old:27.99,img:U('1530281700549-e82e7bf110d6'),tag:'Outdoor',cat:'Dog',unit:'Towel + frisbee + pouch',rate:4.7,rev:1108,stock:38,desc:'Quick-dry sand-free towel, floating frisbee & treat pouch. Everything for the perfect beach day with your dog.',spec:'Sand-free towel • Floating frisbee • Washable pouch'},
+{n:'MIOVA Tuna Feast 4lb',p:22.99,old:28.99,img:F('cat,food',101),tag:'Bestseller',cat:'Cat Food',unit:'4 lb bag • 40% protein',rate:4.8,rev:1642,stock:37,desc:'Wild tuna with pumpkin for easy digestion. Shiny coat in 3 weeks, picky eaters love the taste.',spec:'40% protein • Taurine • No fillers'},
+{n:'Salmon Pate Variety 24pk',p:26.99,old:32.99,img:F('cat,food',102),tag:'Wet Food',cat:'Cat Food',unit:'24 cans • grain free',rate:4.9,rev:2031,stock:29,desc:'Silky salmon pate in single-serve cans. Extra hydration for urinary health, zero grains.',spec:'Grain free • High moisture • 24 cans'},
+{n:'Indoor Chicken Rice 7lb',p:27.99,old:0,img:F('cat,food',103),tag:'Indoor',cat:'Cat Food',unit:'7 lb • weight control',rate:4.7,rev:986,stock:31,desc:'Lean chicken with brown rice for indoor cats. L-carnitine keeps weight ideal, hairball fiber blend.',spec:'Weight control • Hairball fiber • AAFCO'},
+{n:'Kitten Milk Replacer 12oz',p:16.99,old:0,img:F('kitten,milk',104),tag:'Kitten',cat:'Cat Food',unit:'12 oz powder • DHA',rate:4.9,rev:754,stock:24,desc:'Vet-formulated milk for newborn kittens. DHA plus colostrum support, mixes smooth with no lumps.',spec:'DHA • Colostrum • 0-6 weeks'},
+{n:'Urinary Health Dry 6lb',p:29.99,old:36.99,img:F('cat,food',105),tag:'Health',cat:'Cat Food',unit:'6 lb • pH balanced',rate:4.8,rev:1120,stock:21,desc:'Controlled minerals plus cranberry keep urinary pH balanced. Recommended by vets for adult cats.',spec:'pH balanced • Cranberry • Low magnesium'},
+{n:'Hairball Control Crunch 5lb',p:21.99,old:0,img:F('cat,food',106),tag:'Hairball',cat:'Cat Food',unit:'5 lb • natural fiber',rate:4.7,rev:863,stock:34,desc:'Natural beet fiber moves hair through gently. Fewer hairballs in 2 weeks, chicken first ingredient.',spec:'Natural fiber • Chicken first • Daily feeding'},
+{n:'Ocean Fish Medley 3lb',p:18.99,old:23.99,img:F('cat,food',107),tag:'Fish',cat:'Cat Food',unit:'3 lb • whitefish blend',rate:4.7,rev:692,stock:42,desc:'Whitefish, salmon and tuna medley with omega oils. Crunchy kibble cleans teeth while they eat.',spec:'Triple fish • Omega 3+6 • Crunchy kibble'},
+{n:'Senior Cat 7Plus Turkey 6lb',p:28.99,old:0,img:F('cat,food',108),tag:'Senior',cat:'Cat Food',unit:'6 lb • joint care',rate:4.8,rev:587,stock:18,desc:'Easy-chew turkey kibble with glucosamine for older joints. Lower phosphorus supports kidneys.',spec:'Joint care • Easy chew • Kidney support'},
+{n:'Freeze-Dried Chicken Bites',p:17.99,old:21.99,img:F('cat,treat',109),tag:'Treats',cat:'Cat Food',unit:'10 oz • single ingredient',rate:4.9,rev:1493,stock:46,desc:'100 percent freeze-dried chicken breast. High-value training reward, crumble over food as topper.',spec:'Single ingredient • Raw • Resealable'},
+{n:'Sensitive Duck Recipe 4lb',p:23.99,old:0,img:F('cat,food',110),tag:'Gentle',cat:'Cat Food',unit:'4 lb • limited ingredient',rate:4.8,rev:731,stock:27,desc:'Duck plus pea for cats with food sensitivities. Limited ingredients, prebiotics calm the tummy.',spec:'Limited ingredient • Prebiotics • No dairy'},
+{n:'High-Protein Beef 12lb',p:39.99,old:49.99,img:F('dog,food',111),tag:'Dog',cat:'Dog Food',unit:'12 lb • 30% protein',rate:4.8,rev:1876,stock:25,desc:'Ranch beef with sweet potato for active dogs. Glucosamine keeps hips strong, no corn or soy.',spec:'30% protein • Glucosamine • No corn/soy'},
+{n:'Puppy Growth Chicken 8lb',p:29.99,old:0,img:F('puppy,food',112),tag:'Puppy',cat:'Dog Food',unit:'8 lb • DHA brain support',rate:4.9,rev:1345,stock:33,desc:'Chicken with DHA for brain and eye development. Small bites for tiny teeth, calcium for bones.',spec:'DHA • Calcium • Small bites'},
+{n:'Grain-Free Duck Pea 10lb',p:36.99,old:44.99,img:F('dog,food',113),tag:'Dog',cat:'Dog Food',unit:'10 lb • grain free',rate:4.7,rev:912,stock:22,desc:'Duck with peas and flaxseed for shiny coats. Grain-free energy that is gentle on stomachs.',spec:'Grain free • Flaxseed • Omega coat'},
+{n:'Joint Senior Recipe 8lb',p:34.99,old:0,img:F('dog,food',114),tag:'Senior',cat:'Dog Food',unit:'8 lb • MSM + glucosamine',rate:4.8,rev:768,stock:17,desc:'Lower-fat senior recipe with MSM for stiff joints. Soft-moist pieces easy on older teeth.',spec:'MSM joint • Lower fat • Soft pieces'},
+{n:'Hearty Beef Stew 12pk',p:24.99,old:29.99,img:F('dog,food',115),tag:'Wet Food',cat:'Dog Food',unit:'12 cans • gravy',rate:4.8,rev:1054,stock:39,desc:'Chunky beef with carrots in savory gravy. Serve alone or pour over kibble for fussy eaters.',spec:'Real beef • Veggies • 12 cans'},
+{n:'Salmon Training Bites 6oz',p:9.99,old:0,img:F('dog,treat',116),tag:'Training',cat:'Dog Food',unit:'6 oz • 2 kcal each',rate:4.9,rev:2210,stock:58,desc:'Tiny salmon bites for fast rewards. Only 2 kcal each so you can train longer guilt-free.',spec:'2 kcal • Salmon • Pocket pouch'},
+{n:'Weight Control Turkey 10lb',p:35.99,old:42.99,img:F('dog,food',117),tag:'Light',cat:'Dog Food',unit:'10 lb • low fat',rate:4.7,rev:689,stock:23,desc:'Lean turkey with green beans keeps dogs full on fewer calories. L-carnitine burns fat.',spec:'Low fat • L-carnitine • High fiber'},
+{n:'Puppy Milk Replacer 12oz',p:15.99,old:0,img:F('puppy,milk',118),tag:'Puppy',cat:'Dog Food',unit:'12 oz • colostrum',rate:4.8,rev:542,stock:26,desc:'Mothers milk match for orphaned puppies. Colostrum plus probiotics, easy-mix powder.',spec:'Colostrum • Probiotics • 0-6 weeks'},
+{n:'Self-Cleaning Litter Box',p:89.99,old:119.99,img:F('cat,litter',119),tag:'Litter',cat:'Cat',unit:'Auto rake • 1 month tray',rate:4.6,rev:834,stock:8,desc:'Automatic rake scoops after every visit. Sealed tray locks odor for weeks, app refill alerts.',spec:'Automatic • Odor sealed • App alerts'},
+{n:'Window Hammock Perch',p:25.99,old:32.99,img:F('cat,window',120),tag:'Home',cat:'Cat',unit:'Holds 30 lb • suction',rate:4.8,rev:1290,stock:35,desc:'Sunny window seat with strong suction cups. Machine-washable mat, cats nap for hours.',spec:'Holds 30 lb • Washable • Tool-free'},
+{n:'Ceramic Whisker Bowls 2pk',p:14.99,old:0,img:F('cat,bowl',121),tag:'Bowls',cat:'Cat',unit:'2 bowls • anti-slip',rate:4.9,rev:1764,stock:51,desc:'Wide shallow bowls stop whisker fatigue. Heavy ceramic with no-slip base, dishwasher safe.',spec:'Whisker friendly • Ceramic • Dishwasher safe'},
+{n:'Catnip Mouse Trio',p:8.99,old:11.99,img:F('cat,kitten',122),tag:'Cat',cat:'Cat',unit:'3 mice • catnip',rate:4.7,rev:2105,stock:64,desc:'Three furry mice stuffed with strong catnip. Rattle sound triggers hunting all evening.',spec:'Catnip • Rattle • 3 pack'},
+{n:'Hooded Litter Pan Large',p:27.99,old:0,img:F('cat,litter',123),tag:'Litter',cat:'Cat',unit:'Large • carbon filter',rate:4.7,rev:943,stock:30,desc:'Covered pan with carbon filter controls dust and smell. High walls stop litter scatter.',spec:'Carbon filter • High walls • Easy scoop'},
+{n:'Kitten Collar Bell Set',p:10.99,old:0,img:F('kitten,cat',124),tag:'Kitten',cat:'Cat',unit:'2 collars • breakaway',rate:4.8,rev:678,stock:47,desc:'Two soft breakaway collars with gentle bell. Safe release buckle, adjustable for growing kittens.',spec:'Breakaway safe • Adjustable • 2 pack'},
+{n:'No-Pull Harness Medium',p:24.99,old:31.99,img:F('dog,harness',125),tag:'Walk',cat:'Dog',unit:'M • padded + reflective',rate:4.8,rev:1873,stock:41,desc:'Front-clip harness stops pulling without choking. Padded chest plus reflective trim for nights.',spec:'Front clip • Padded • Reflective'},
+{n:'Orthopedic Memory Bed L',p:59.99,old:79.99,img:F('dog,bed',126),tag:'Home',cat:'Dog',unit:'Large 36in • washable',rate:4.9,rev:956,stock:12,desc:'Thick memory foam eases old joints and big breeds. Bolster sides for head rest, washable cover.',spec:'Memory foam • Washable • Non-slip'},
+{n:'Slow Feeder Bowl Ceramic',p:16.99,old:0,img:F('dog,bowl',127),tag:'Dog',cat:'Dog',unit:'Maze • anti-gulp',rate:4.8,rev:1432,stock:44,desc:'Maze ridges slow speedy eaters 5x. Less bloat and gas, heavy ceramic stays put.',spec:'Anti-gulp • Ceramic • Dishwasher safe'},
+{n:'Puppy Pee Pads 50ct',p:18.99,old:23.99,img:F('puppy,dog',128),tag:'Puppy',cat:'Dog',unit:'50 pads • 6-layer',rate:4.7,rev:1890,stock:53,desc:'Six-layer pads lock liquid and odor fast. Built-in attractant trains puppies in days.',spec:'6-layer • Leak-proof • Attractant'},
+{n:'Reflective Raincoat M',p:29.99,old:0,img:F('dog,raincoat',129),tag:'Outdoor',cat:'Dog',unit:'M • waterproof hood',rate:4.7,rev:614,stock:28,desc:'Full-cover waterproof coat with hood and belly flap. Reflective stripes for dark rainy walks.',spec:'Waterproof • Hood • Reflective'},
+{n:'Car Seat Hammock Cover',p:34.99,old:44.99,img:F('dog,car',130),tag:'Travel',cat:'Dog',unit:'Universal • waterproof',rate:4.8,rev:827,stock:31,desc:'Quilted hammock protects seats from mud and claws. Side flaps plus seat anchors, wipes clean.',spec:'Waterproof • Universal • Wipe clean'},
+{n:'Puppy Crate 30in Foldable',p:49.99,old:64.99,img:F('puppy,crate',131),tag:'Puppy',cat:'Dog',unit:'30in • double door',rate:4.8,rev:1102,stock:16,desc:'Fold-flat crate with divider for growing pups. Double doors plus leak-proof tray included.',spec:'Foldable • Divider • Leak tray'},
+{n:'Rope Tug Toy XL',p:11.99,old:0,img:F('dog,toy',132),tag:'Play',cat:'Fun',unit:'XL cotton • fetch + tug',rate:4.7,rev:1340,stock:62,desc:'Thick braided cotton for strong tuggers. Cleans teeth as they chew, survives fetch daily.',spec:'Braided cotton • Teeth clean • XL'},
+{n:'Crinkle Fish Kicker',p:9.99,old:12.99,img:F('cat,toy',133),tag:'Play',cat:'Fun',unit:'Catnip + crinkle',rate:4.8,rev:1876,stock:57,desc:'Long kicker fish with crinkle belly and catnip. Perfect hug-and-kick size for bunny kicks.',spec:'Catnip • Crinkle • Kicker size'},
+{n:'Floating Fetch Ball 2pk',p:12.99,old:0,img:F('dog,ball',134),tag:'Fetch',cat:'Fun',unit:'2 balls • float + bounce',rate:4.8,rev:998,stock:49,desc:'High-bounce balls float in pool and lake. Bright color easy to spot, gentle on teeth.',spec:'Floats • High bounce • 2 pack'},
+{n:'Puzzle Feeder Toy',p:16.99,old:21.99,img:F('dog,puzzle',135),tag:'Interactive',cat:'Fun',unit:'Level 2 • treat maze',rate:4.8,rev:1124,stock:36,desc:'Sliding panels hide treats for smart noses. Slows eating, beats boredom on rainy days.',spec:'Level 2 • Non-slip • Dishwasher safe'},
+{n:'Cat Tunnel 3-Way',p:19.99,old:26.99,img:F('cat,tunnel',136),tag:'Play',cat:'Fun',unit:'3-way • crinkle',rate:4.7,rev:856,stock:33,desc:'Three-way tunnel with peep hole and hanging ball. Crinkles loudly, folds flat in seconds.',spec:'3-way • Crinkle • Foldable'},
+{n:'Rubber Chew Bone',p:8.99,old:0,img:F('dog,chew',137),tag:'Chew',cat:'Fun',unit:'Bacon scent • tough',rate:4.7,rev:2215,stock:71,desc:'Near-indestructible bacon-scented bone. Textured nubs massage gums, fits treat paste inside.',spec:'Tough rubber • Bacon scent • Gum massage'},
+{n:'Laser Pointer Mini',p:6.99,old:0,img:F('cat,laser',138),tag:'Play',cat:'Fun',unit:'USB charge • 3 modes',rate:4.6,rev:1932,stock:68,desc:'USB-chargeable red dot with three play modes. Auto shutoff protects eyes, cats go wild.',spec:'USB charge • 3 modes • Auto off'},
+{n:'Plush Squirrel 3pk',p:13.99,old:17.99,img:F('dog,plush',139),tag:'Chew',cat:'Fun',unit:'3 squirrels • squeak',rate:4.8,rev:1043,stock:45,desc:'Three squeaky squirrels with reinforced seams. Soft for cuddles, tough enough for fetch.',spec:'Squeaky • Reinforced • 3 pack'},
+{n:'Feather Refill 4pk',p:7.99,old:0,img:F('cat,feather',140),tag:'Play',cat:'Fun',unit:'4 refills • clips on',rate:4.8,rev:1567,stock:73,desc:'Four natural feather heads clip onto any wand. Crinkle plus bell keeps cats chasing daily.',spec:'Natural feather • Clips on • 4 pack'},
+{n:'Snuffle Foraging Mat',p:21.99,old:27.99,img:F('dog,snuffle',141),tag:'Interactive',cat:'Fun',unit:'Slow feed • washable',rate:4.9,rev:789,stock:29,desc:'Hide kibble in fleece strips for nose work. Ten minutes of sniffing tires pups like an hour walk.',spec:'Nose work • Washable • Anti-slip'},
+{n:'Tennis Balls 6pk',p:10.99,old:0,img:F('dog,tennis',142),tag:'Fetch',cat:'Fun',unit:'6 balls • extra bounce',rate:4.7,rev:1754,stock:66,desc:'Pro-bounce tennis balls gentle on teeth. Bright felt easy to find in grass, six in a pack.',spec:'Extra bounce • 6 pack • Gentle felt'},
+{n:'Catnip Banana 2pk',p:8.99,old:0,img:F('cat,catnip',143),tag:'Play',cat:'Fun',unit:'2 bananas • strong nip',rate:4.8,rev:2041,stock:59,desc:'Curved banana shape perfect for kicking. Extra-strong catnip, even lazy cats play.',spec:'Strong nip • Kicker shape • 2 pack'},
+{n:'Soft Flying Disc',p:9.99,old:12.99,img:F('dog,frisbee',144),tag:'Fetch',cat:'Fun',unit:'Soft rubber • floats',rate:4.7,rev:887,stock:52,desc:'Soft floppy disc safe for teeth and gums. Flies far, floats in water, folds in pocket.',spec:'Soft • Floats • Pocket size'},
+{n:'Treat Dispensing Ball',p:14.99,old:0,img:F('dog,treat',145),tag:'Interactive',cat:'Fun',unit:'Adjustable • slow feed',rate:4.8,rev:1023,stock:38,desc:'Adjustable hole drops kibble as they roll. Turns meals into games, slows speedy eaters.',spec:'Adjustable • Slow feed • Tough plastic'},
+{n:'Furry Mice 6pk',p:7.99,old:0,img:F('cat,mice',146),tag:'Play',cat:'Fun',unit:'6 mice • rattle + nip',rate:4.7,rev:1893,stock:61,desc:'Six furry mice with rattle and catnip inside. Lightweight for batting across the floor.',spec:'Rattle • Catnip • 6 pack'},
+{n:'Squeaky Duck Plush',p:10.99,old:14.99,img:F('dog,plush',147),tag:'Chew',cat:'Fun',unit:'Quack sound • soft',rate:4.8,rev:967,stock:43,desc:'Quacking duck plush dogs carry everywhere. Soft body for naps, squeak for play.',spec:'Quack squeak • Soft • Cuddle size'},
+{n:'Spring Toys 10pk',p:5.99,old:0,img:F('cat,spring',148),tag:'Play',cat:'Fun',unit:'10 springs • bounce',rate:4.7,rev:1654,stock:75,desc:'Ten bouncy springs cats chase under sofas. Endless solo play for under six dollars.',spec:'Bouncy • Solo play • 10 pack'},
+{n:'Tug Rope Ball Combo',p:13.99,old:17.99,img:F('dog,rope',149),tag:'Fetch',cat:'Fun',unit:'Rope + ball • 2-in-1',rate:4.8,rev:834,stock:47,desc:'Braided rope with knotted ball end. Throw it, tug it, chew it — one toy does all.',spec:'2-in-1 • Braided • Chew safe'},
+{n:'Suction Window Teaser',p:11.99,old:0,img:F('cat,window',150),tag:'Play',cat:'Fun',unit:'Suction + feather',rate:4.6,rev:712,stock:39,desc:'Sticks to windows and tiles for solo play. Dangling feather spins, cats bat for hours.',spec:'Suction cup • Solo play • Feather'},
+{n:'Agility Jump Set',p:39.99,old:54.99,img:F('dog,agility',151),tag:'Interactive',cat:'Fun',unit:'3 jumps • carry bag',rate:4.8,rev:456,stock:14,desc:'Three height-adjustable jumps with carry bag. Backyard agility training made easy and fun.',spec:'Adjustable • Carry bag • Outdoor'},
+{n:'De-Shedding Tool',p:15.99,old:19.99,img:F('dog,grooming',152),tag:'Grooming',cat:'Care',unit:'Reduces shedding 90pct',rate:4.8,rev:2310,stock:54,desc:'Stainless edge reaches loose undercoat without cutting. Weekly use cuts shedding up to 90 percent.',spec:'Stainless edge • Weekly • All coats'},
+{n:'Nail Clipper File Set',p:11.99,old:0,img:F('pet,nails',153),tag:'Grooming',cat:'Care',unit:'Clipper + guard + file',rate:4.7,rev:1876,stock:60,desc:'Sharp clipper with safety guard stops over-cutting. Free file smooths edges, works on all sizes.',spec:'Safety guard • Sharp • All sizes'},
+{n:'Ear Cleaner 8oz',p:12.99,old:0,img:F('dog,ear',154),tag:'Health',cat:'Care',unit:'8 oz • aloe + tea tree',rate:4.8,rev:1245,stock:42,desc:'Gentle aloe rinse dissolves wax and stops odor. Weekly drops keep floppy ears infection-free.',spec:'Aloe rinse • Weekly • Odor control'},
+{n:'Tear-Stain Wipes 100ct',p:10.99,old:13.99,img:F('dog,face',155),tag:'Grooming',cat:'Care',unit:'100 wipes • gentle',rate:4.7,rev:1533,stock:48,desc:'Pre-soaked pads wipe tear stains and eye gunk daily. Fragrance-free, safe around eyes.',spec:'Fragrance free • 100 pack • Daily'},
+{n:'Fine Flea Comb',p:7.99,old:0,img:F('cat,grooming',156),tag:'Grooming',cat:'Care',unit:'Fine teeth • finds fleas',rate:4.8,rev:2087,stock:65,desc:'Extra-fine teeth catch fleas, eggs and dandruff. Dip in soapy water after each pass.',spec:'Fine teeth • Flea check • Daily'},
+{n:'Paw Balm Stick',p:9.99,old:12.99,img:F('dog,paw',157),tag:'Skin',cat:'Care',unit:'Shea + beeswax',rate:4.9,rev:1342,stock:50,desc:'Twist-up stick heals cracked paws from hot roads and ice. Lick-safe shea and beeswax.',spec:'Lick safe • Shea • Hot and ice'},
+{n:'Waterless Foam Shampoo',p:13.99,old:0,img:F('cat,shampoo',158),tag:'Grooming',cat:'Care',unit:'No rinse • 7oz foam',rate:4.7,rev:986,stock:37,desc:'Rub-in foam cleans without water for cats who hate baths. Light coconut scent, no sticky feel.',spec:'No rinse • Coconut • Cat safe'},
+{n:'Toothbrush Paste Kit',p:11.99,old:15.99,img:F('dog,teeth',159),tag:'Dental',cat:'Care',unit:'2 brushes + paste',rate:4.8,rev:1765,stock:55,desc:'Dual-head brush plus poultry-flavor paste dogs accept. Three brushings a week freshens breath.',spec:'Dual head • Tasty paste • Weekly'},
+{n:'Hypoallergenic Wipes 80ct',p:9.99,old:0,img:F('pet,wipes',160),tag:'Skin',cat:'Care',unit:'80 wipes • aloe',rate:4.8,rev:1988,stock:63,desc:'Thick aloe wipes clean paws, face and bum daily. Alcohol-free for sensitive and allergy pets.',spec:'Alcohol free • Aloe • 80 pack'},
+{n:'Dematting Comb',p:13.99,old:0,img:F('cat,brush',161),tag:'Grooming',cat:'Care',unit:'Rounded blades • safe',rate:4.7,rev:1123,stock:40,desc:'Rounded blades cut mats without pulling skin. Works on long-haired cats and doodles.',spec:'Rounded blades • Long hair • Safe'},
+{n:'Styptic Powder 0.5oz',p:8.99,old:0,img:F('dog,nail',162),tag:'Health',cat:'Care',unit:'Stops bleeding fast',rate:4.9,rev:1674,stock:58,desc:'Pinch on nail nicks to stop bleeding in seconds. Every home groomer needs this backup.',spec:'Fast stop •3400 • Home groom'},
+{n:'Calming Spray 8oz',p:14.99,old:18.99,img:F('cat,calm',163),tag:'Calm',cat:'Care',unit:'Pheromone • travel',rate:4.6,rev:845,stock:34,desc:'Pheromone mist eases travel and vet-visit stress. Spray carrier 15 minutes before leaving.',spec:'Pheromone • Travel • Vet visits'},
+{n:'Cotton Ear Pads 50ct',p:7.99,old:0,img:F('dog,care',164),tag:'Health',cat:'Care',unit:'50 pads • soft',rate:4.7,rev:692,stock:52,desc:'Soft quilted pads clean ears gently after baths. Lint-free, fits fingers for control.',spec:'Lint free • 50 pack • Gentle'},
+{n:'Deshedding Shampoo 16oz',p:15.99,old:0,img:F('dog,bath',165),tag:'Grooming',cat:'Care',unit:'16 oz • omega oils',rate:4.8,rev:1231,stock:45,desc:'Omega-rich shampoo loosens undercoat in the tub. Less brushing later, fresh oatmeal scent.',spec:'Omega oils • Oatmeal • 16oz'},
+{n:'USB Nail Grinder',p:22.99,old:29.99,img:F('dog,nails',166),tag:'Grooming',cat:'Care',unit:'Quiet • USB charge',rate:4.7,rev:1456,stock:32,desc:'Whisper-quiet grinder files nails smoothly, no clip fear. Two speeds plus LED light.',spec:'Quiet • USB • LED light'},
+{n:'Pet Eye Wash 4oz',p:10.99,old:0,img:F('cat,eye',167),tag:'Health',cat:'Care',unit:'Sterile • 4oz drops',rate:4.8,rev:834,stock:41,desc:'Sterile saline flushes dust and pollen from eyes. Twist-cap drops safe for daily allergy care.',spec:'Sterile • Allergy • Daily'},
+{n:'Grooming Glove Brush',p:12.99,old:16.99,img:F('cat,grooming',168),tag:'Grooming',cat:'Care',unit:'Five-finger • hair trap',rate:4.7,rev:1893,stock:49,desc:'Pet while you groom — loose fur sticks to the glove. Great for cats who fear brushes.',spec:'Pet and groom • Hair trap • Calm'},
+{n:'Breath Freshener Drops',p:9.99,old:0,img:F('dog,breath',169),tag:'Dental',cat:'Care',unit:'2oz • tasteless',rate:4.6,rev:1021,stock:46,desc:'Tasteless drops in water freshen breath 12 hours. Enzymes fight plaque between brushings.',spec:'Tasteless • Enzymes • Daily water'},
+{n:'Pet First-Aid Kit 40pc',p:24.99,old:32.99,img:F('pet,firstaid',170),tag:'Health',cat:'Care',unit:'40 pieces • travel case',rate:4.9,rev:687,stock:27,desc:'Bandages, antiseptic, tick tool and blanket in a travel case. Be ready for hikes and parks.',spec:'40 pieces • Tick tool • Travel case'},
+{n:'Orchard Grass 3lb',p:12.99,old:0,img:F('rabbit,hay',171),tag:'Rabbit',cat:'Small Pet',unit:'3 lb • soft cut',rate:4.8,rev:534,stock:36,desc:'Soft orchard grass rabbits prefer over plain timothy. Long strands trim teeth naturally.',spec:'Soft cut • Teeth trim • Resealable'},
+{n:'Guinea Pig Pellets 5lb',p:15.99,old:19.99,img:F('guineapig',172),tag:'Guinea',cat:'Small Pet',unit:'5 lb • vitamin C',rate:4.9,rev:623,stock:33,desc:'Timothy-based pellets with stabilized vitamin C. No seeds or dyes, uniform bites stop picking.',spec:'Vitamin C • No seeds • Timothy base'},
+{n:'Silent Hamster Wheel 8in',p:13.99,old:0,img:F('hamster,wheel',173),tag:'Hamster',cat:'Small Pet',unit:'8in • whisper spin',rate:4.8,rev:745,stock:44,desc:'Whisper bearing wheel runs silent all night. Solid track safe for tiny feet and tails.',spec:'Silent • Solid track • 8in'},
+{n:'Apple Chew Sticks 20pc',p:8.99,old:0,img:F('rabbit,chew',174),tag:'Rabbit',cat:'Small Pet',unit:'20 sticks • apple wood',rate:4.9,rev:812,stock:57,desc:'Crunchy apple-wood sticks satisfy gnawing instinct. Keeps rabbit teeth short and healthy.',spec:'Apple wood • Teeth • 20 pack'},
+{n:'Wooden Hideout House',p:16.99,old:21.99,img:F('hamster,house',175),tag:'Hideout',cat:'Small Pet',unit:'Chew-safe • no glue',rate:4.7,rev:456,stock:25,desc:'Untreated wooden hideout doubles as a chew toy. No nails or glue, safe cozy naps inside.',spec:'No glue • Chew safe • Cozy'},
+{n:'Dust-Free Bedding 10L',p:14.99,old:0,img:F('rabbit,bedding',176),tag:'Bedding',cat:'Small Pet',unit:'10L • paper based',rate:4.8,rev:689,stock:38,desc:'Soft paper bedding with 99 percent dust removed. Super absorbent, controls odor 7 days.',spec:'Dust free • Absorbent • 7-day odor'},
+{n:'Guinea Hay Rack',p:11.99,old:0,img:F('guineapig,hay',177),tag:'Guinea',cat:'Small Pet',unit:'Clip-on • keeps hay clean',rate:4.7,rev:398,stock:42,desc:'Clip-on rack keeps hay off the floor and clean. Less waste, easy refill from the top.',spec:'Clip-on • Less waste • Easy refill'},
+{n:'Hamster Food Mix 2lb',p:9.99,old:12.99,img:F('hamster,food',178),tag:'Hamster',cat:'Small Pet',unit:'2 lb • seeds + pellets',rate:4.8,rev:567,stock:47,desc:'Balanced seed plus pellet mix with mealworm protein. No sugary fillers, shiny coats fast.',spec:'Protein • No sugar • Balanced'},
+{n:'Rabbit Harness Small',p:13.99,old:0,img:F('rabbit,harness',179),tag:'Rabbit',cat:'Small Pet',unit:'S • escape-proof vest',rate:4.6,rev:342,stock:29,desc:'Soft vest harness made for rabbit bodies. Escape-proof straps plus leash for garden hops.',spec:'Vest style • Escape-proof • Leash in'},
+{n:'Mineral Chew 6pk',p:7.99,old:0,img:F('rabbit,teeth',180),tag:'Chew',cat:'Small Pet',unit:'6 chews • calcium',rate:4.7,rev:489,stock:53,desc:'Fruit-flavored mineral chews for rabbits and guinea pigs. Calcium supports teeth and bones.',spec:'Calcium • Fruit flavor • 6 pack'},
+{n:'Playpen Fence 12pc',p:29.99,old:39.99,img:F('rabbit,pen',181),tag:'Playpen',cat:'Small Pet',unit:'12 panels • foldable',rate:4.8,rev:512,stock:19,desc:'Twelve tall panels build any shape pen indoors or on grass. Folds flat for storage.',spec:'12 panels • Foldable • Indoor-outdoor'},
+{n:'No-Drip Bottle 16oz',p:8.99,old:0,img:F('hamster,bottle',182),tag:'Bottle',cat:'Small Pet',unit:'16oz • double ball',rate:4.7,rev:634,stock:51,desc:'Double-ball tip stops drips that soak bedding. Easy hang with measurement marks.',spec:'No drip • 16oz • Easy hang'},
+{n:'Timothy Cubes 1lb',p:9.99,old:0,img:F('rabbit,hay',183),tag:'Rabbit',cat:'Small Pet',unit:'1 lb • compressed',rate:4.8,rev:445,stock:40,desc:'Compressed hay cubes for chewing and play. Less mess than loose hay, same teeth benefits.',spec:'Compressed • Less mess • Chew play'},
+{n:'Herb Forage Mix 8oz',p:10.99,old:13.99,img:F('rabbit,herbs',184),tag:'Forage',cat:'Small Pet',unit:'8oz • 5 herbs',rate:4.9,rev:378,stock:35,desc:'Five-herb forage sprinkle that makes hay exciting. Dandelion, chamomile and more rabbits love.',spec:'5 herbs • Sprinkle • Natural'},
+{n:'Ceramic Dish Small',p:7.99,old:0,img:F('hamster,bowl',185),tag:'Bowl',cat:'Small Pet',unit:'Tip-proof • washable',rate:4.8,rev:523,stock:56,desc:'Heavy tip-proof dish hamsters cannot flip. Smooth glaze washes clean in seconds.',spec:'Tip-proof • Ceramic • Washable'},
+{n:'Small Travel Carrier',p:24.99,old:32.99,img:F('rabbit,carrier',186),tag:'Travel',cat:'Small Pet',unit:'Ventilated • top load',rate:4.7,rev:467,stock:22,desc:'Ventilated carrier with top-loading door for easy bunny in-out. Seatbelt loop for car rides.',spec:'Top load • Ventilated • Car safe'},
+{n:'Small Nail Scissors',p:8.99,old:0,img:F('rabbit,grooming',187),tag:'Grooming',cat:'Small Pet',unit:'Rounded tip • safe',rate:4.7,rev:391,stock:43,desc:'Tiny rounded-tip scissors trim rabbit and guinea nails safely. Non-slip grip for control.',spec:'Rounded tip • Non-slip • Small pets'},
+{n:'Timothy Pellets 4lb',p:13.99,old:0,img:F('rabbit,food',188),tag:'Rabbit',cat:'Small Pet',unit:'4 lb • high fiber',rate:4.8,rev:556,stock:37,desc:'High-fiber timothy pellets keep digestion moving. Even nutrition in every single bite.',spec:'High fiber • Even nutrition • 4 lb'},
+{n:'Tunnel Tent Combo',p:19.99,old:26.99,img:F('guineapig,tunnel',189),tag:'Playpen',cat:'Small Pet',unit:'Tunnel + tent • foldable',rate:4.8,rev:423,stock:28,desc:'Pop-up tunnel plus tent for zoomies and naps. Folds into a carry pouch in seconds.',spec:'Pop-up • Foldable • Zoomies'},
+{n:'Vitamin C Tablets 90ct',p:11.99,old:0,img:F('guineapig,vitamin',190),tag:'Health',cat:'Small Pet',unit:'90 tabs • tasty',rate:4.8,rev:498,stock:45,desc:'Tasty orange tablets guinea pigs eat like treats. Daily C prevents scurvy, vet recommended.',spec:'Daily C • Tasty • Vet recommended'}];
+var showAll=false,prodCat='All';
+var wishlist;try{wishlist=new Set(JSON.parse(read('wish','[]')))}catch(e){wishlist=new Set()}
+function stars(r){var s='';for(var i=1;i<=5;i++){s+=i<=Math.round(r)?'★':'☆'}return '<span style="color:#EB9B3E">'+s+'</span>'}
+function stockBadge(s){if(s<=10)return '<small style="background:#FDE8E8;color:#B42318;border-radius:20px;padding:2px 8px;font-weight:800">🔥 Only '+s+' left</small>';if(s<=25)return '<small style="background:#FFF4D6;color:#8a6d00;border-radius:20px;padding:2px 8px;font-weight:800">Low stock</small>';return '<small style="background:#E6F6EC;color:#0E7D6C;border-radius:20px;padding:2px 8px;font-weight:800">✔ In stock</small>'}
+function prodList(){var q=$('prodSearch').value.trim().toLowerCase();var l=PRODUCTS.filter(function(x){var okC=false;if(prodCat==='All')okC=true;else if(prodCat==='Food')okC=(x.cat.indexOf('Food')>=0);else if(prodCat==='Cat')okC=(x.cat==='Cat'||x.cat==='Cat Food'||x.tag==='Kitten'||x.tag==='Cat');else if(prodCat==='Dog')okC=(x.cat==='Dog'||x.cat==='Dog Food'||x.tag==='Dog'||x.tag==='Puppy'||x.tag==='Training'||x.tag==='Walk');else okC=(x.cat===prodCat||x.tag===prodCat);var hay=x.n+' '+x.tag+' '+x.cat+' '+x.unit+' '+x.desc;var okQ=!q||hay.toLowerCase().indexOf(q)>=0;return okC&&okQ});var s=$('prodSort').value;if(s==='low')l=l.slice().sort(function(a,b){return a.p-b.p});if(s==='high')l=l.slice().sort(function(a,b){return b.p-a.p});if(s==='rate')l=l.slice().sort(function(a,b){return b.rate-a.rate});return l}
+function renderProducts(){var all=prodList();var l=showAll?all:all.slice(0,8);$('productGrid').innerHTML=(l.length?l.map(function(x){var i=PRODUCTS.indexOf(x);var off=x.old?' <s style="color:#aaa;font-weight:400">$'+x.old.toFixed(2)+'</s> <small style="background:#EB9B3E;color:#fff;border-radius:12px;padding:1px 7px">-'+Math.round((1-x.p/x.old)*100)+'%</small>':'';return '<div class="prod"><div style="position:relative"><img loading="lazy" src="'+x.img+'" alt="'+x.n+' — '+x.unit+'" data-view="'+i+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><button aria-label="Save to wishlist" style="position:absolute;top:6px;right:6px;background:#fff;border:1px solid #eee;border-radius:50%;width:34px;height:34px;cursor:pointer" data-wish="'+i+'">'+(wishlist.has(i)?'❤️':'🤍')+'</button></div><small style="background:#EFF2E8;border-radius:20px;padding:2px 8px">'+x.tag+' • '+x.cat+'</small><br><b style="font-size:13.5px">'+x.n+'</b><br><small style="color:#888">'+x.unit+'</small><br>'+stars(x.rate)+' <small>('+x.rev.toLocaleString()+')</small><br><b>$'+x.p.toFixed(2)+'</b>'+off+'<br>'+stockBadge(x.stock)+'<br><button data-addc="'+i+'">🛒 Add</button> <button data-view="'+i+'">👁 Details</button></div>'}).join(''):'<p style="color:#888">No products found 😿 Try another search or category.</p>')
++'<div style="grid-column:1/-1;text-align:center;color:#888;font-size:12.5px">Showing '+l.length+' of '+all.length+' products • '+PRODUCTS.length+' total • ♡ Wishlist: '+wishlist.size+' • all photos unique</div>';
+document.querySelectorAll('[data-addc]').forEach(function(b){b.onclick=function(){var x=PRODUCTS[parseInt(b.getAttribute('data-addc'),10)];addCart(x.n,x.p,x.img)}});
+document.querySelectorAll('[data-view]').forEach(function(b){b.onclick=function(){viewProduct(parseInt(b.getAttribute('data-view'),10))}});
+document.querySelectorAll('[data-wish]').forEach(function(b){b.onclick=function(e){e.stopPropagation();toggleWish(parseInt(b.getAttribute('data-wish'),10))}});}
+function toggleWish(i){if(wishlist.has(i)){wishlist.delete(i);toast('Removed from wishlist')}else{wishlist.add(i);toast(PRODUCTS[i].n+' ♡ saved!')}store('wish',JSON.stringify(Array.from(wishlist)));renderProducts();if($('modalBg').classList.contains('show')&&$('vpWish')){$('vpWish').textContent=wishlist.has(i)?'❤️ Saved in wishlist':'🤍 Save to wishlist'}}
+document.querySelectorAll('[data-add]').forEach(function(b){b.onclick=function(){var parts=b.getAttribute('data-add').split('|');var found=null;for(var k=0;k<PRODUCTS.length;k++){if(PRODUCTS[k].n===parts[0])found=PRODUCTS[k]}if(found)addCart(found.n,found.p,found.img);else addCart(parts[0],parseFloat(parts[1]),FALLBACK_CAT)}});
+var CATS_SHOP=[
+{k:'All',t:'All Products',e:'🐾',img:'https://images.dog.ceo/breeds/stbernard/n02109525_8704.jpg'},
+{k:'Cat',t:'Cat',e:'🐱',img:'https://s3.us-west-2.amazonaws.com/cdn2.thecatapi.com/images/c4v.jpg'},
+{k:'Dog',t:'Dog',e:'🐶',img:'https://images.dog.ceo/breeds/samoyed/n02111889_12771.jpg'},
+{k:'Food',t:'Food',e:'🍖',img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Dog_food_in_a_bowl.jpg/500px-Dog_food_in_a_bowl.jpg'},
+{k:'Fun',t:'Toys',e:'🧸',img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Canaan_Dog_Puppy.jpg/500px-Canaan_Dog_Puppy.jpg'},
+{k:'Care',t:'Care',e:'🧴',img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Blue_Ridge_November_2015_03_%28Snapdragon_Floral_Boutique_and_Backyard_DogWash_%26_Grooming%29.jpg/500px-Blue_Ridge_November_2015_03_%28Snapdragon_Floral_Boutique_and_Backyard_DogWash_%26_Grooming%29.jpg'},
+{k:'Small Pet',t:'Small Pets',e:'🐰',img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Wildpark_Schwarzach_Meissner_Widder_1.jpg/500px-Wildpark_Schwarzach_Meissner_Widder_1.jpg'}];
+function catCount(key){return PRODUCTS.filter(function(x){if(key==='All')return true;if(key==='Food')return x.cat.indexOf('Food')>=0;if(key==='Cat')return x.cat==='Cat'||x.cat==='Cat Food'||x.tag==='Kitten'||x.tag==='Cat';if(key==='Dog')return x.cat==='Dog'||x.cat==='Dog Food'||x.tag==='Dog'||x.tag==='Puppy'||x.tag==='Training'||x.tag==='Walk';return x.cat===key||x.tag===key}).length}
+function renderCatCards(){$('catCards').innerHTML=CATS_SHOP.map(function(c){return '<button class="catchip'+(prodCat===c.k?' active':'')+'" data-shopcat="'+c.k+'"><img loading="lazy" src="'+c.img+'" alt="'+c.t+' category" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><span><b>'+c.e+' '+c.t+'</b><small>'+catCount(c.k)+' items →</small></span></button>'}).join('');
+document.querySelectorAll('[data-shopcat]').forEach(function(b){b.onclick=function(){prodCat=b.getAttribute('data-shopcat');renderCatCards();renderProducts();toast(b.querySelector('b').textContent.trim()+' — '+catCount(prodCat)+' items')}});
+document.querySelectorAll('#catCards img').forEach(function(im){im.addEventListener('click',function(e){e.stopPropagation();viewFull(im.src.replace('w=200','w=800'))})});}
+renderCatCards();
+$('prodSearch').oninput=renderProducts;$('prodSort').onchange=renderProducts;
+$('allProdBtn').onclick=function(){showAll=!showAll;$('allProdBtn').textContent=showAll?'Show Less ↑':'View All '+PRODUCTS.length+' Products';renderProducts()};
+function brandOf(x){return x.cat.indexOf('Food')>=0?'MIOVA':'PUPHUB'}
+function skuOf(i){return 'PH-'+(1000+i)}
+var EXTRA_D={'Cat Food':{t:'🥗 Ingredients & Feeding',p:['Real fish and chicken first, no fillers','Taurine plus omega 3 and 6 for shiny coat','Split daily food into 2 fresh meals','Shift from old food slowly over 7 days']},'Dog Food':{t:'🥗 Ingredients & Feeding',p:['Real meat first with rice and veggies','Glucosamine for hips and joints','Split daily food into 2 fresh meals','Fresh water beside the bowl always']},'Fun':{t:'🎮 Play Guide & Safety',p:['Play 10 to 15 min, twice a day','Always supervise, replace if torn','Rotate toys weekly to keep fun new','Rinse washable toys and air dry']},'Care':{t:'🧴 How To Use',p:['Follow label steps, keep away from eyes','Patch test once for sensitive skin','Weekly routine gives best results','Store capped in a cool dry spot']},'Cat':{t:'🏠 Happy Home Tips',p:['Let the cat explore one room first','Scoop litter daily, wash box weekly','Keep a scratcher near the sofa','Second water bowl away from food']},'Dog':{t:'🏠 Happy Home Tips',p:['First meeting on a calm leash','Same feeding and walk time daily','Reward calm acts, 10 min training','Crate train gently with treats inside']},'Small Pet':{t:'🐰 Small-Pet Care',p:['Hay plus fresh water every day','Full bedding change once a week','Hold with both hands, support body','Keep cage away from heat and draft']}};
+var RV_N=['Sarah M.','Daniel K.','Priya S.','Rahim U.','Emily R.','James L.'];
+var RV_T=['Loved it from day one. Quality is great for this price.','Delivery was fast and packing stayed fresh.','Visible change in two weeks. Highly recommended.','Exactly as described. Buying again for sure.','Our vet approves. Happy and healthy buddy here.'];
+function revHtml(i,x){var a='<div style="border:1px solid #eee;border-radius:12px;padding:10px;margin-top:8px;font-size:13px"><b>'+RV_N[i%6]+'</b> '+stars(5)+'<br>'+RV_T[i%5]+'<br><small style="color:#0E7D6C">✔ Verified purchase</small></div>';var s2=x.rate>=4.8?5:4;var b='<div style="border:1px solid #eee;border-radius:12px;padding:10px;margin-top:8px;font-size:13px"><b>'+RV_N[(i+3)%6]+'</b> '+stars(s2)+'<br>'+RV_T[(i+2)%5]+'<br><small style="color:#0E7D6C">✔ Verified purchase</small></div>';return a+b}
+function viewProduct(i){var x=PRODUCTS[i];var qty=1;var rel=[];for(var r=0;r<PRODUCTS.length&&rel.length<4;r++){if(r!==i&&(PRODUCTS[r].cat===x.cat||PRODUCTS[r].tag===x.tag))rel.push(r)}
+openModal('<div style="position:relative"><img src="'+x.img+'" alt="'+x.n+' — '+x.unit+'" id="vpImg" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'" style="width:100%;border-radius:14px;max-height:300px;object-fit:contain;background:#faf3e6;cursor:zoom-in"><button id="vpWish" style="position:absolute;top:8px;right:8px;background:#fff;border:1px solid #eee;border-radius:100px;padding:8px 14px;cursor:pointer;font-weight:800">'+(wishlist.has(i)?'❤️ Saved in wishlist':'🤍 Save to wishlist')+'</button></div>'
++'<div style="font-size:12px;color:#888;margin-top:10px">'+x.cat+' • '+x.tag+' • '+x.unit+'</div><div style="font-size:12px;color:#888">Brand: <b>'+brandOf(x)+'</b> • SKU: '+skuOf(i)+' • 🚚 Ships in 24h</div><h2 style="margin:4px 0">'+x.n+'</h2>'
++'<div>'+stars(x.rate)+' <b>'+x.rate+'</b> <small>('+x.rev.toLocaleString()+' verified reviews)</small></div>'
++'<h3 style="margin:8px 0">$'+x.p.toFixed(2)+(x.old?' <s style="color:#aaa">$'+x.old.toFixed(2)+'</s> <small style="background:#EB9B3E;color:#fff;border-radius:12px;padding:2px 8px">SAVE $'+(x.old-x.p).toFixed(2)+'</small>':'')+'</h3>'+stockBadge(x.stock)+' <small style="color:#888">• '+x.stock+' pcs in warehouse</small>'
++'<p style="font-size:14px;color:#444;margin:10px 0;line-height:1.65">'+x.desc+'</p>'
++'<div style="background:#F7F6F2;border-radius:12px;padding:12px;font-size:13px"><b>✨ Highlights</b><br>'+x.spec.split('•').map(function(s){return '✔ '+s.trim()}).join('<br>')+'</div>'
++'<div style="background:#EFF6F1;border-radius:12px;padding:12px;font-size:13px;margin-top:8px"><b>'+(EXTRA_D[x.cat]||EXTRA_D['Dog']).t+'</b><br>'+(EXTRA_D[x.cat]||EXTRA_D['Dog']).p.map(function(s){return '→ '+s}).join('<br>')+'</div>'
++'<div style="border:1px solid #eee;border-radius:12px;padding:12px;font-size:13px;margin-top:8px"><b>🚚 Delivery & Returns</b><br>• City: same-day to 24h • Outside: 2 to 3 days<br>• Shipping $3.99, FREE over $35<br>• 30-day easy returns, no questions<br>• Cash on delivery, Card and bKash accepted<br>• 🏅 Vet approved • Coupon PUPHUB20 = 20% off</div>'
++'<div style="margin-top:10px"><b>💬 Top reviews</b> <small style="color:#888">('+x.rev.toLocaleString()+')</small>'+revHtml(i,x)+'</div>'
++'<div style="display:flex;gap:8px;align-items:center;margin-top:12px"><button class="chip" id="qMin">−</button><b id="qN" style="min-width:30px;text-align:center">1</b><button class="chip" id="qPlus">+</button><button class="btn" style="background:#5B50E6;color:#fff;flex:1" id="vpAdd">🛒 Add to Cart →</button></div>'
++(rel.length?'<div style="margin-top:14px"><b>You may also like</b><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:8px;margin-top:8px">'+rel.map(function(j){return '<div style="border:1px solid #eee;border-radius:12px;padding:6px;text-align:center;cursor:pointer" data-rel="'+j+'"><img loading="lazy" src="'+PRODUCTS[j].img+'" alt="'+PRODUCTS[j].n+'" style="width:100%;height:70px;object-fit:cover;border-radius:8px" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><small style="font-size:11px"><b>'+PRODUCTS[j].n.split(' ').slice(0,2).join(' ')+'</b><br>$'+PRODUCTS[j].p.toFixed(2)+'</small></div>'}).join('')+'</div></div>':''),
+true);
+$('vpImg').onclick=function(){viewFull(x.img)};
+$('vpWish').onclick=function(){toggleWish(i)};
+$('qMin').onclick=function(){if(qty>1){qty--;$('qN').textContent=qty}};
+$('qPlus').onclick=function(){if(qty<x.stock){qty++;$('qN').textContent=qty}else{toast('Only '+x.stock+' in stock!')}};
+$('vpAdd').onclick=function(){for(var k=0;k<qty;k++)addCart(x.n,x.p,x.img);closeModal();toggleCart(true)};
+document.querySelectorAll('[data-rel]').forEach(function(b){b.onclick=function(){viewProduct(parseInt(b.getAttribute('data-rel'),10))}})}
+var cart=[],discount=0;
+try{cart=JSON.parse(read('cart','[]'))||[]}catch(e){cart=[]}
+function saveCart(){store('cart',JSON.stringify(cart))}
+function addCart(n,p,img){var f=null;for(var i=0;i<cart.length;i++){if(cart[i].n===n)f=cart[i]}if(f)f.q++;else cart.push({n:n,p:p,img:img,q:1});saveCart();updateCart();toast(n+' added! 🛒');var b=$('cartBtn');b.style.transform='scale(1.15)';setTimeout(function(){b.style.transform=''},200)}
+function updateCart(){var c=0,tot=0;cart.forEach(function(x){c+=x.q;tot+=x.p*x.q});tot=tot*(1-discount);$('cartCount').textContent=c;$('cartCount2').textContent=c;$('drawerCount').textContent=c;$('cartTotal').textContent='$'+tot.toFixed(2);var pct=Math.min(100,Math.round(tot/35*100));$('shipFill').style.width=pct+'%';$('shipMsg').textContent=tot>=35?'🎉 FREE delivery unlocked!':'Add $'+(35-tot).toFixed(2)+' more for FREE delivery';
+$('cartItems').innerHTML=cart.length?cart.map(function(x,i){return '<div class="cart-item"><img src="'+x.img+'" alt="'+x.n+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><div style="flex:1"><b style="font-size:13px">'+x.n+'</b><br>$'+x.p.toFixed(2)+' × '+x.q+' = <b>$'+(x.p*x.q).toFixed(2)+'</b></div><div><button class="chip" data-inc="'+i+'">+</button> <button class="chip" data-dec="'+i+'">−</button></div></div>'}).join(''):'<p style="color:#888;text-align:center;margin-top:30px">Cart empty 🐾<br>Add some yummy food!</p>';
+document.querySelectorAll('[data-inc]').forEach(function(b){b.onclick=function(){chQty(parseInt(b.getAttribute('data-inc'),10),1)}});
+document.querySelectorAll('[data-dec]').forEach(function(b){b.onclick=function(){chQty(parseInt(b.getAttribute('data-dec'),10),-1)}});}
+function chQty(i,d){if(!cart[i])return;cart[i].q+=d;if(cart[i].q<=0)cart.splice(i,1);saveCart();updateCart()}
+function toggleCart(o){var d=$('cartDrawer');var open=typeof o==='boolean'?o:!d.classList.contains('open');d.classList.toggle('open',open);$('overlay').classList.toggle('show',open);lockScroll(open);if(open)updateCart()}
+$('cartBtn').onclick=function(){toggleCart(true)};$('cartX').onclick=function(){toggleCart(false)};
+$('couponBtn').onclick=function(){var v=$('coupon').value.trim().toUpperCase();if(v==='PUPHUB20'||v==='WELCOME10'){discount=.2;updateCart();toast('Coupon applied! 20% OFF 🎉')}else toast('Invalid coupon. Try PUPHUB20')};
+$('checkoutBtn').onclick=function(){if(!cart.length){toast('Cart is empty!');return}var t=$('cartTotal').textContent;openModal('<h2>Checkout 🧾</h2><p style="font-size:13px;color:#666">Total: <b>'+t+'</b> (coupon saved '+(discount?20:0)+'%)</p><label>Name *</label><input id="oName" placeholder="Full name"><label>Address *</label><input id="oAddr" placeholder="Street, City"><label>Payment</label><select id="oPay"><option>Cash on delivery</option><option>Card</option><option>bKash</option></select><div class="err" id="eOrder">Enter name + address</div><button class="btn btn-purple" style="width:100%" id="payBtn">Pay '+t+' →</button>');$('payBtn').onclick=function(){if(!$('oName').value.trim()||!$('oAddr').value.trim()){$('eOrder').style.display='block';return}var payMethod=$('oPay').value;var id='PH-'+Math.floor(Math.random()*90000+10000);cart=[];discount=0;saveCart();updateCart();toggleCart(false);openModal('<div style="text-align:center"><div style="font-size:70px">🎉</div><h2>Order placed!</h2><p>Order <b>#'+id+'</b><br>🚚 Arriving in 2–3 days + SMS tracking.<br>Paid via '+payMethod+'</p><button class="btn" style="background:#0E7D6C;color:#fff" onclick="closeModal()">Awesome!</button></div>')}};
+renderProducts();updateCart();
+// ADOPTION
+var PETS=[
+{name:'Buddy',age:'Young',ageL:'2 yrs',sex:'Male',breed:'Golden Retriever',type:'Dog',size:'Large',loc:'New York',img:'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=70&auto=format&fit=crop',story:'Loyal, loves swimming & kids. House-trained, vaccinated.'},
+{name:'Luna',age:'Young',ageL:'1 yr',sex:'Female',breed:'Domestic Shorthair',type:'Cat',size:'Small',loc:'Los Angeles',img:'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=70&auto=format&fit=crop',story:'Quiet cuddler, litter-trained. Best for apartments.'},
+{name:'Max',age:'Adult',ageL:'3 yrs',sex:'Male',breed:'Border Collie Mix',type:'Dog',size:'Medium',loc:'Chicago',img:'https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&q=70&auto=format&fit=crop',story:'Super smart, knows 12 commands. Needs active family.'},
+{name:'Mochi',age:'Baby',ageL:'6 mos',sex:'Female',breed:'Domestic Shorthair',type:'Cat',size:'Small',loc:'New York',img:'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&q=70&auto=format&fit=crop',story:'Playful kitten, loves feather toys.'},
+{name:'Bella',age:'Young',ageL:'1 yr',sex:'Female',breed:'Shepherd Mix',type:'Dog',size:'Medium',loc:'Los Angeles',img:'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=70&auto=format&fit=crop',story:'Gentle soul, great with cats. Walks nicely on leash.'},
+{name:'Coco',age:'Baby',ageL:'4 mos',sex:'Male',breed:'Beagle Puppy',type:'Dog',size:'Small',loc:'New York',img:'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&q=70&auto=format&fit=crop',story:'Curious nose, food-motivated, easy to train.'},
+{name:'Milo',age:'Senior',ageL:'9 yrs',sex:'Male',breed:'Tabby Senior',type:'Cat',size:'Small',loc:'Chicago',img:'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&q=70&auto=format&fit=crop',story:'Calm senior lap cat. Adoption fee waived.'},
+{name:'Ruby',age:'Baby',ageL:'8 wks',sex:'Female',breed:'Netherland Dwarf',type:'Rabbit',size:'Small',loc:'New York',img:'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=70&auto=format&fit=crop',story:'Litter-trained bunny, loves hay & boxes.'},
+{name:'Rocky',age:'Adult',ageL:'4 yrs',sex:'Male',breed:'Jack Russell Mix',type:'Dog',size:'Medium',loc:'Chicago',img:'https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=70&auto=format&fit=crop',story:'Bright and loyal fetch champion. House-trained, great jogging buddy.'},
+{name:'Willow',age:'Young',ageL:'2 yrs',sex:'Female',breed:'Siamese Mix',type:'Cat',size:'Small',loc:'Los Angeles',img:'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&q=70&auto=format&fit=crop',story:'Chatty & affectionate, follows you everywhere.'}];
+var CATS=[{t:'Dogs',e:'🐶',n:'120+ pets',f:'Dog'},{t:'Cats',e:'🐱',n:'85+ pets',f:'Cat'},{t:'Puppies',e:'🐕',n:'45+ pets',f:'Puppy'},{t:'Kittens',e:'🐈',n:'60+ pets',f:'Kitten'},{t:'Small Pets',e:'🐰',n:'30+ pets',f:'Rabbit'},{t:'Seniors',e:'🐩',n:'25+ pets',f:'Senior'}];
+var activeCat=null,showAllPets=false,favs;
+try{favs=new Set(JSON.parse(read('favs','[]')))}catch(e){favs=new Set()}
+$('adoptCats').innerHTML=CATS.map(function(c,i){return '<button class="cat-card" id="cc'+i+'" data-cc="'+i+'"><span style="font-size:36px">'+c.e+'</span><br><b>'+c.t+'</b><br><small>'+c.n+'</small></button>'}).join('');
+document.querySelectorAll('[data-cc]').forEach(function(b){b.onclick=function(){filterCat(parseInt(b.getAttribute('data-cc'),10))}});
+function filterCat(i){activeCat=activeCat===i?null:i;CATS.forEach(function(_,j){$('cc'+j).classList.toggle('active',j===activeCat)});renderPets()}
+function filteredPets(){var t=$('fType').value,a=$('fAge').value,s=$('fSize').value,l=$('fLoc').value;return PETS.filter(function(p){if(t!=='Any Type'&&p.type!==t)return false;if(a!=='Any Age'&&p.age!==a)return false;if(s!=='Any Size'&&p.size!==s)return false;if(l!=='Any Location'&&p.loc!==l)return false;
+if(activeCat!==null){var f=CATS[activeCat].f;if(f==='Dog'||f==='Cat'||f==='Rabbit'){if(p.type!==f)return false}if(f==='Puppy'){if(!(p.type==='Dog'&&p.age==='Baby'))return false}if(f==='Kitten'){if(!(p.type==='Cat'&&p.age==='Baby'))return false}if(f==='Senior'){if(p.age!=='Senior')return false}}return true})}
+function renderPets(){var l=filteredPets();var vis=showAllPets?l:l.slice(0,5);$('petCount').textContent='('+l.length+' found)';$('petGrid').innerHTML=vis.length?vis.map(function(p){var idx=PETS.indexOf(p);return '<div class="pet"><div style="position:relative"><img loading="lazy" src="'+p.img+'" alt="'+p.name+' the '+p.breed+'" data-pet="'+idx+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><span style="position:absolute;top:8px;right:8px;background:#fff;border-radius:50%;padding:6px 9px;cursor:pointer" data-fav="'+idx+'" title="Save to favorites">'+(favs.has(idx)?'❤️':'🤍')+'</span><button aria-label="View full photo" style="position:absolute;top:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;border:0;border-radius:50%;width:34px;height:34px;cursor:zoom-in" data-full="'+p.img+'">⛶</button><span style="position:absolute;bottom:8px;left:8px;background:#1E1B16;color:#fff;font-size:11px;padding:3px 9px;border-radius:20px">'+p.loc+'</span></div><div class="pet-body"><b>'+p.name+'</b> <small style="color:#888">• '+p.ageL+'</small><br><span class="tag">'+p.age+'</span><span class="tag">'+p.sex+'</span><span class="tag">'+p.size+'</span><br><small style="color:#888">'+p.breed+'</small><br><button class="find" style="margin-top:8px;width:100%;padding:9px" data-pet="'+idx+'">Meet '+p.name+' →</button></div></div>'}).join(''):'<p style="color:#888">No matches 😿 Try clearing filters. <button class="find" id="clearF">Clear filters</button></p>';
+document.querySelectorAll('[data-pet]').forEach(function(b){b.onclick=function(){openPet(parseInt(b.getAttribute('data-pet'),10))}});
+document.querySelectorAll('[data-fav]').forEach(function(b){b.onclick=function(e){e.stopPropagation();toggleFav(parseInt(b.getAttribute('data-fav'),10),b)}});
+document.querySelectorAll('[data-full]').forEach(function(b){b.onclick=function(e){e.stopPropagation();viewFull(b.getAttribute('data-full'))}});
+var cf=$('clearF');if(cf)cf.onclick=clearFilters;}
+['fType','fAge','fSize','fLoc'].forEach(function(id){$(id).onchange=renderPets});
+function clearFilters(){$('fType').selectedIndex=0;$('fAge').selectedIndex=0;$('fSize').selectedIndex=0;$('fLoc').selectedIndex=0;activeCat=null;CATS.forEach(function(_,j){$('cc'+j).classList.remove('active')});renderPets()}
+$('matchBtn').onclick=function(){renderPets();var n=filteredPets().length;toast(n?n+' perfect matches found! ❤️':'No matches — try Any Type/Age');go('petGrid')};
+$('viewAllBtn').onclick=function(){showAllPets=!showAllPets;$('viewAllBtn').textContent=showAllPets?'Show less ↑':'View all pets →';renderPets()};
+function toggleFav(i,el){if(favs.has(i)){favs.delete(i);el.textContent='🤍'}else{favs.add(i);el.textContent='❤️';toast(PETS[i].name+' saved to favorites!')}store('favs',JSON.stringify(Array.from(favs)))}
+function openPet(i){var p=PETS[i];openModal('<img src="'+p.img+'" alt="'+p.name+'" id="petBig" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'" style="width:100%;max-height:340px;object-fit:contain;background:#f6f1e8;border-radius:14px;cursor:zoom-in"><h2 style="margin-top:10px">'+p.name+' '+(favs.has(i)?'❤️':'')+'</h2><p style="font-size:13px;color:#666">'+p.breed+' • '+p.ageL+' • '+p.sex+' • '+p.size+' • '+p.loc+'</p><p style="font-size:14px;margin:10px 0;line-height:1.6">'+p.story+'</p><p style="font-size:13px">✔ Vaccinated ✔ Spayed/neutered ✔ Health-checked<br>💰 Adoption fee: <b>$'+(p.age==='Senior'?'0 (FREE)':'75')+'</b> (includes starter kit + free vet visit)</p><button class="btn" style="background:#5F7053;color:#fff;width:100%;margin-top:10px" id="adoptGo">Adopt '+p.name+' →</button>',true);$('petBig').onclick=function(){viewFull(p.img)};$('adoptGo').onclick=function(){adoptPet(i)}}
+function adoptPet(i){openModal('<h2>Adopt '+PETS[i].name+' 🏠</h2><p style="font-size:13px;color:#666">2-min application. Home check within 48h.</p><label>Your Name *</label><input id="adN" placeholder="Full name"><label>Phone *</label><input id="adP" inputmode="tel" placeholder="+1..."><label>Why '+PETS[i].name+'?</label><textarea id="adW" rows="2" placeholder="Your home, experience..."></textarea><div class="err" id="eAdopt">Enter name + valid phone</div><button class="btn" style="background:#5F7053;color:#fff;width:100%" id="adGo">Submit Application →</button>');$('adGo').onclick=function(){if(!$('adN').value.trim()||($('adP').value.replace(/\D/g,'').length<7)){$('eAdopt').style.display='block';return}closeModal();toast('Application for '+PETS[i].name+' sent! Call in 24h 🎉')}}
+renderPets();
+var HAPPY=[['“Adopting Bella was the best decision we ever made. She filled our home with joy and endless love.”','— The Johnson Family, adopted Bella 2024'],['“MIOVA food fixed Leo’s stomach in 2 weeks. His coat never shinier!”','— Priya S. + Leo (cat)'],['“ER saved Max at 2am after he swallowed a toy. Forever grateful.”','— Daniel K. + Max']];var hi=0;
+$('happyNext').onclick=function(){hi=(hi+1)%HAPPY.length;$('happyText').textContent=HAPPY[hi][0];$('happyWho').textContent=HAPPY[hi][1]};
+var TESTI=[['Sarah M.','The team is so caring and truly passionate. Highly recommend!','⭐⭐⭐⭐⭐'],['Daniel K.','Adopting was easy and full of support. Felt like family.','⭐⭐⭐⭐⭐'],['Priya S.','They care for pets and people. Grooming top class!','⭐⭐⭐⭐⭐'],['Rahim U.','Daycare CCTV is genius. I watch my pup from office!','⭐⭐⭐⭐⭐']];
+$('testiSlider').innerHTML=TESTI.map(function(t){return '<div class="testi"><b>“</b><p style="font-size:13.5px">'+t[1]+'</p><div style="color:#EB9B3E">'+t[2]+'</div><small><b>'+t[0]+'</b> • Verified parent</small></div>'}).join('');
+$('tPrev').onclick=function(){$('testiSlider').scrollBy({left:-320,behavior:'smooth'})};$('tNext').onclick=function(){$('testiSlider').scrollBy({left:320,behavior:'smooth'})};
+setInterval(function(){if(document.hidden)return;hi=(hi+1)%HAPPY.length;$('happyText').textContent=HAPPY[hi][0];$('happyWho').textContent=HAPPY[hi][1]},8000);
+// RESOURCES / DONATE / VOLUNTEER
+function openResource(k){var R={guides:['📖 Pet Care Guides','Daily: fresh water, 2 meals (puppy 3), 30-min walk, brush weekly. Vaccines at 6/8/12/16 weeks + yearly. Bath every 4–6 weeks.'],training:['🐾 Training & Behavior','Sit in 3 steps: lure up → mark → reward. 5-min sessions, 3×/day. No punishment — redirect & reward calm. Free first class Sat 10am!'],health:['💙 Health & Wellness','Red flags: not eating 24h, vomiting 3×+, lethargy, limping. Prevention: monthly flea, yearly dental, weight check. WhatsApp vet 24/7.'],faq:['💬 Adoption FAQ','Fee $0–$150 (vaccines + spay included). Steps: apply → meet → home check (48h) → welcome kit. Renters need landlord letter.'],adopt:['🏠 How Adoption Works','1) Find match 2) Meet & greet 3) Home check 4) Take home + free vet visit + 1 month MIOVA food.']};var r=R[k]||R.guides;openModal('<h2>'+r[0]+'</h2><p style="font-size:14px;line-height:1.7;color:#444;margin-top:10px">'+r[1]+'</p><button class="btn" style="background:#5F7053;color:#fff;width:100%;margin-top:12px" id="resBook">Book Free Consult →</button>');$('resBook').onclick=function(){closeModal();go('bookForm')}}
+document.querySelectorAll('[data-res]').forEach(function(b){b.onclick=function(){openResource(b.getAttribute('data-res'))}});
+document.querySelectorAll('[data-resf]').forEach(function(b){b.onclick=function(){openResource(b.getAttribute('data-resf'))}});
+$('adoptHow').onclick=function(){openResource('adopt')};
+function openDonate(){openModal('<h2>Donate — Save a Life ♡</h2><p style="font-size:13px;color:#666">$25 = vaccines • $50 = food for a week • $100 = surgery help</p><div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap"><button class="chip" data-amt="25">$25</button><button class="chip" data-amt="50">$50</button><button class="chip" data-amt="100">$100</button></div><label>Amount ($) *</label><input id="dAmt" type="number" value="50" min="1" max="10000"><div id="dImpact" style="font-size:13px;font-weight:700">🎉 $50 feeds a rescue for a week!</div><label>Name</label><input id="dName" placeholder="Your name"><button class="btn" style="background:#1E1B16;color:#fff;width:100%" id="dGo">♡ Donate Now</button>');
+document.querySelectorAll('[data-amt]').forEach(function(b){b.onclick=function(){$('dAmt').value=b.getAttribute('data-amt');updImpact()}});
+function updImpact(){var a=parseFloat($('dAmt').value)||0;$('dImpact').textContent=a>=100?'🏥 $'+a+' helps emergency surgery!':a>=50?'🎉 $'+a+' feeds a rescue for a week!':a>=25?'💉 $'+a+' vaccinates a pup!':'❤️ Every $1 saves lives!'}
+$('dAmt').oninput=updImpact;
+$('dGo').onclick=function(){var a=parseFloat($('dAmt').value)||0;if(a<1){toast('Enter amount $1+');return}closeModal();openModal('<div style="text-align:center"><div style="font-size:70px">🫙</div><h2>THANK YOU! 🎉</h2><p>Your <b>$'+a+'</b> feeds &amp; heals rescues.<br>Receipt by email. You’re a hero! 🐾</p><button class="btn" style="background:#EB9B3E;color:#fff" onclick="closeModal()">Close</button></div>')}}
+$('supportBtn').onclick=openDonate;$('donateBtn2').onclick=openDonate;$('donF').onclick=openDonate;
+function openVolunteer(){openModal('<h2>Become a Volunteer 🐾</h2><p style="font-size:13px;color:#666">2 hrs/week = huge change. Orientation Sat 11am.</p><label>Name *</label><input id="vN" placeholder="Full name"><label>Phone / Email *</label><input id="vE" placeholder="+1... / you@mail.com"><label>Interest</label><select id="vI"><option>Dog walking</option><option>Cat socializing</option><option>Events</option><option>Foster</option></select><div class="err" id="eVol">Enter name + contact</div><button class="btn" style="background:#7C8E6F;color:#fff;width:100%" id="vGo">Join →</button>');$('vGo').onclick=function(){if(!$('vN').value.trim()||$('vE').value.trim().length<5){$('eVol').style.display='block';return}closeModal();toast('Welcome to the pack! Orientation Sat 11am 🎉')}}
+$('commBtn').onclick=openVolunteer;$('volBtn2').onclick=openVolunteer;$('volF').onclick=openVolunteer;$('fosF').onclick=function(){openVolunteer();toast('Foster selected — mention in form! 🏠')};
+function openContact(){openModal('<h2>Send a message ✉️</h2><label>Name *</label><input id="cN" placeholder="Your name"><label>Message *</label><textarea id="cM" rows="3" placeholder="Hi..."></textarea><div class="err" id="eC">Enter name + message</div><button class="btn" style="background:#0E7D6C;color:#fff;width:100%" id="cGo">Send →</button>');$('cGo').onclick=function(){if(!$('cN').value.trim()||!$('cM').value.trim()){$('eC').style.display='block';return}closeModal();toast('Message sent! Reply within 2 hours 📩')}}
+$('msgBtn').onclick=openContact;$('contactF').onclick=openContact;
+$('subBtn').onclick=function(){var e=$('email').value.trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){$('eEmail').style.display='block';return}$('eEmail').style.display='none';$('email').value='';toast('Subscribed! 10% code sent 🎉')};
+$('evBtn').onclick=function(){toast('Next event: Sat 10am Central Park — 30+ pups! 🎪')};
+document.querySelectorAll('[data-soc]').forEach(function(b){b.onclick=function(){toast('Opening '+b.getAttribute('data-soc')+'... @puphub 🐾')}});
+function openTips(){openModal('<h2>Pet Health Tips 💚</h2><ul style="font-size:14px;line-height:2"><li>💧 Fresh water daily, wash bowl</li><li>🦷 Brush teeth 3×/week</li><li>🚶 30-min walk + play daily</li><li>⚖️ Feel ribs = ideal weight</li><li>💉 Yearly vet + monthly flea</li><li>🌡️ Never leave pet in hot car</li></ul>')}
+function openWeeklyTips(){openModal('<h2>Weekly Tips 📩</h2><p style="font-size:13px;color:#666">One short email every Sunday. No spam.</p><input id="wE" type="email" placeholder="you@mail.com"><div class="err" id="eW">Enter valid email</div><button class="btn" style="background:#0E7D6C;color:#fff;width:100%" id="wGo">Subscribe →</button>');$('wGo').onclick=function(){if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('wE').value)){$('eW').style.display='block';return}closeModal();toast('Weekly tips ON! Sundays 🌱')}}
+$('tipsBtn').onclick=openTips;$('weeklyBtn').onclick=openWeeklyTips;
+// VET
+var PLANS=[{n:'Basic Care',m:19,f:['1 Wellness Exam / year','Core Vaccinations','Basic Health Check','Nail Trim + Ear clean']},{n:'Premium Care',m:39,pop:1,f:['All Basic benefits','Dental Cleaning yearly','Blood Work + X-ray 20% off','Priority Appointments']},{n:'Complete Care',m:69,f:['All Premium benefits','Advanced Diagnostics','Surgery 25% off','24/7 ER free triage']}];
+var yearly=false;
+function renderPlans(){$('planGrid').innerHTML=PLANS.map(function(p){var price=yearly?p.m*10:p.m;var per=yearly?'/year':"/month";return '<div class="plan'+(p.pop?' mid':'')+'">'+(p.pop?'<small>⭐ MOST POPULAR</small><br>':'')+'<small>'+p.n+'</small><h3>$'+price+'<small style="font-size:12px">'+per+'</small></h3>'+(yearly?'<small style="color:#0E7D6C;font-weight:800">Save $'+(p.m*2)+'</small>':'')+'<ul>'+p.f.map(function(x){return '<li>✔ '+x+'</li>'}).join('')+'</ul><button class="btn btn-teal" data-plan="'+p.n+' $'+price+per+'">Choose Plan</button></div>'}).join('');
+document.querySelectorAll('[data-plan]').forEach(function(b){b.onclick=function(){choosePlan(b.getAttribute('data-plan'))}})}
+$('billM').onclick=function(){yearly=false;$('billM').classList.add('active');$('billY').classList.remove('active');renderPlans()};
+$('billY').onclick=function(){yearly=true;$('billY').classList.add('active');$('billM').classList.remove('active');renderPlans()};
+renderPlans();
+var CARE=[['🩺','Wellness Exams','$35','Nose-to-tail check, weight, heart, early disease screen. 30 mins.'],['💉','Vaccinations','$25+','Rabies, DHPP, Bordetella, FVRCP. Puppy package $99.'],['🦷','Dental Care','$99+','Scaling, polish, X-ray. Free dental check Tuesdays.'],['🔬','Surgery','$199+','Spay/neuter, soft tissue. Monitored anesthesia.'],['🚨','Emergency Care','24/7','ICU, oxygen, surgery on call. Members free triage.'],['🧪','Laboratory Tests','$29+','Blood, urine, allergy — 15-min in-house results.']];
+$('careGrid').innerHTML=CARE.map(function(c,i){return '<button class="feat" data-care="'+i+'"><span style="font-size:28px">'+c[0]+'</span><b>'+c[1]+'</b><br><small>'+c[3]+'</small><br><small style="color:#0E7D6C;font-weight:800">'+c[2]+' →</small></button>'}).join('');
+document.querySelectorAll('[data-care]').forEach(function(b){b.onclick=function(){var c=CARE[parseInt(b.getAttribute('data-care'),10)];openModal('<div style="font-size:40px">'+c[0]+'</div><h2>'+c[1]+'</h2><p style="color:#0E7D6C;font-weight:800">'+c[2]+'</p><p style="font-size:13px;color:#555;margin:8px 0">'+c[3]+'</p><button class="btn" style="background:#0E7D6C;color:#fff;width:100%" id="careBook">Book →</button>');$('careBook').onclick=function(){closeModal();go('bookForm')}}});
+$('erBtn').onclick=function(){toast('Nearest ER: 123 Pet Street, open now • 2.1 mi 🏥')};
+var DOCS=[
+['Dr. Olivia Bennett','Surgery • 8 Years','https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=70&auto=format&fit=crop','Surgery, 2,000+ ops.',['Surgery']],
+['Dr. Liam Anderson','Care Specialist • 10+ Years','https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=70&auto=format&fit=crop','Internal medicine, nutrition.',['Cat']],
+['Dr. Sophia Martinez','Dermatologist • 9+ Years','https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=70&auto=format&fit=crop','Skin, allergies, ears.',['Cat']],
+['Dr. James Park','Emergency Vet • 6 Years','https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=70&auto=format&fit=crop','Night ER hero, critical care.',['Emergency']],
+['Dr. Aisha Khan','Exotics • 7 Years','https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&q=70&auto=format&fit=crop','Rabbits, birds welcome!',['Cat']],
+['Dr. Noah Smith','Behavior Vet • 5 Years','https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=70&auto=format&fit=crop','Anxiety, kind methods.',['Surgery']]];
+var allDocs=false,docCat='All';
+function renderDocs(){var l=DOCS.filter(function(d){return docCat==='All'||d[4].indexOf(docCat)>=0});if(!allDocs)l=l.slice(0,3);
+$('docGrid').innerHTML=l.length?l.map(function(d){return '<div class="doc"><img loading="lazy" src="'+d[2]+'" alt="'+d[0]+', '+d[1]+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><div style="padding:10px"><b>'+d[0]+'</b><br><small>'+d[1]+'</small><br><small style="color:#555">'+d[3]+'</small><br>⭐⭐⭐⭐⭐<br><button class="btn btn-outline" style="padding:8px 16px;margin-top:8px;min-height:40px" data-doc="'+d[0]+'">Book →</button></div></div>'}).join(''):'<p>No doctors in this filter.</p>';
+document.querySelectorAll('[data-doc]').forEach(function(b){b.onclick=function(){bookDoctor(b.getAttribute('data-doc'))}})}
+document.querySelectorAll('#docFilters .chip').forEach(function(c){c.onclick=function(){document.querySelectorAll('#docFilters .chip').forEach(function(x){x.classList.remove('active')});c.classList.add('active');docCat=c.getAttribute('data-d');renderDocs()}});
+$('docBtn').onclick=function(){allDocs=!allDocs;$('docBtn').textContent=allDocs?'Show Less':'View All Doctors';renderDocs()};
+function bookDoctor(n){go('bookForm');var s=$('bDoc');for(var i=0;i<s.options.length;i++){if(s.options[i].text===n){s.selectedIndex=i;break}}toast('Booking with '+n+' 👨‍⚕️')}
+function choosePlan(p){$('selectedPlan').textContent=p;go('bookForm');toast(p+' selected! 🎉')}
+renderDocs();
+$('bookFormEl').addEventListener('submit',function(e){e.preventDefault();var ok=true;
+function chk(id,eid,valid){var bad=!valid();$(eid).style.display=bad?'block':'none';if(bad)ok=false}
+chk('bName','eName',function(){return $('bName').value.trim().length>=2});
+chk('bPhone','ePhone',function(){return $('bPhone').value.replace(/\D/g,'').length>=7});
+chk('bPet','ePet',function(){return $('bPet').value.trim().length>=1});
+chk('bDate','eDate',function(){if(!$('bDate').value)return false;var t=new Date();t.setHours(0,0,0,0);return new Date($('bDate').value+'T00:00')>=t});
+chk('bTime','eTime',function(){return !!$('bTime').value});
+if(!ok){toast('Please fix highlighted fields ⚠️');return}
+var id='PH-'+Math.floor(Math.random()*90000+10000);
+openModal('<h2>Booked! ✅</h2><p>Hi <b>'+$('bName').value.trim()+'</b>! <b>'+$('bPet').value.trim()+'</b> ('+$('bType').value+') booked for <b>'+$('bService').value+'</b><br>📅 '+$('bDate').value+' at '+$('bTime').value+'<br>👨‍⚕️ '+$('bDoc').value+'<br>Plan: '+$('selectedPlan').textContent+'<br>Booking ID: <b>'+id+'</b><br>SMS confirmation in ~5 mins 📲</p><button class="btn" style="background:#0E7D6C;color:#fff;width:100%" onclick="closeModal()">Done</button>')});
+try{$('bDate').min=new Date().toISOString().split('T')[0]}catch(e){}
+var BLOGS=[['10 Signs Your Pet Needs a Vet Visit','May 20, 2024 • Health','https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&q=70&auto=format&fit=crop','Not eating 24h, vomiting 3×+, hiding, limping, heavy panting, cloudy eyes, scooting, bad breath, weight loss, behavior change. Early = cheaper + safer. Call (555) 123-4567.'],['How to Keep Your Pet Happy & Healthy','May 18, 2024 • Wellness','https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400&q=70&auto=format&fit=crop','Same feeding times, daily play, 5-min training, clean water, monthly flea, yearly check. Try daycare trial FREE!'],['Guide to Pet Nutrition Basics','May 15, 2024 • Nutrition','https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400&q=70&auto=format&fit=crop','Protein first, AAFCO label, transition over 7 days. Cats need taurine! Free diet plan in app.']];
+$('blogGrid').innerHTML=BLOGS.map(function(b,i){return '<div data-blog="'+i+'"><img loading="lazy" src="'+b[2]+'" alt="'+b[0]+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'"><div style="padding:14px"><b>'+b[0]+'</b><br><small>'+b[1]+'</small><br><small style="color:#0E7D6C;font-weight:800">Read →</small></div></div>'}).join('');
+document.querySelectorAll('[data-blog]').forEach(function(b){b.onclick=function(){openBlog(parseInt(b.getAttribute('data-blog'),10))}});
+function openBlog(i){var b=BLOGS[i];openModal('<img src="'+b[2]+'" alt="'+b[0]+'" id="blogBig" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'" style="width:100%;max-height:300px;object-fit:contain;background:#f6f1e8;border-radius:12px;cursor:zoom-in"><h2 style="margin-top:10px">'+b[0]+'</h2><small>'+b[1]+' • 4 min read</small><p style="font-size:14px;line-height:1.7;margin-top:10px;color:#444">'+b[3]+'</p><button class="btn" style="background:#0E7D6C;color:#fff;width:100%;margin-top:10px" id="blogVet">Ask a Vet →</button>',true);$('blogBig').onclick=function(){viewFull(b[2])};$('blogVet').onclick=function(){closeModal();go('bookForm')}}
+$('allBlogBtn').onclick=function(){toast('Showing all 24 articles soon — subscribe! 📰')};
+var GAL=['https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=70&auto=format&fit=crop','https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=70&auto=format&fit=crop','https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=70&auto=format&fit=crop','https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&q=70&auto=format&fit=crop','https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=400&q=70&auto=format&fit=crop','https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&q=70&auto=format&fit=crop'];
+$('gallery').innerHTML=GAL.map(function(g,i){return '<img loading="lazy" src="'+g+'" alt="Happy pet photo '+(i+1)+'" data-gal="'+g+'" onerror="this.onerror=null;this.src=\''+FALLBACK_DOG+'\'">'}).join('');
+document.querySelectorAll('[data-gal]').forEach(function(im){im.onclick=function(){viewFull(im.getAttribute('data-gal'))}});
+document.querySelectorAll('.adopt-hero img, .vet-hero img, .food-img img.cat').forEach(function(im){im.addEventListener('click',function(){viewFull(im.src)})});
+$('appIos').onclick=function(){toast('Opening App Store... PetCare 📱')};$('appAnd').onclick=function(){toast('Opening Google Play... PetCare ▶')};
+$('dirBtn').onclick=function(){toast('Opening maps... 123 Pet Street, NY 🗺️')};
+var FAQS=[['How much is grooming?','Small $29, Medium $39, Large $55. Bath + cut + nails + ears. PUPHUB20 = 20% off first visit.'],['Do you take emergencies at night?','Yes! ER 24/7. Call (555) 123-4567. Triage FREE for members, else $49 adjusted in bill.'],['What is the adoption process?','Apply → meet → home check (48h) → welcome kit + free vet visit. Fee $0–$150.'],['Do you deliver pet food?','Yes — free over $35, same-day in city. 30-day returns.'],['Can I watch my dog in daycare?','Yes! Live CCTV in app + daily photo report cards.']];
+$('faqList').innerHTML=FAQS.map(function(f,i){return '<div class="faq-item"><button class="faq-q" aria-expanded="false" data-faq="'+i+'">'+f[0]+'<span>+</span></button><div class="faq-a" id="fa'+i+'" style="display:none">'+f[1]+'</div></div>'}).join('');
+document.querySelectorAll('[data-faq]').forEach(function(b){b.onclick=function(){var a=$('fa'+b.getAttribute('data-faq'));var open=a.style.display==='block';a.style.display=open?'none':'block';b.setAttribute('aria-expanded',open?'false':'true');b.querySelector('span').textContent=open?'+':'−'}});
+try{if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;if(el.classList.contains('count')&&!el.done){el.done=true;var n=parseInt(el.getAttribute('data-n'),10)||0;var c=0;var step=Math.max(1,Math.ceil(n/40));var t=setInterval(function(){c+=step;if(c>=n){c=n;clearInterval(t)}el.textContent=c.toLocaleString()},40)}io.unobserve(el)}})},{threshold:.4});document.querySelectorAll('.count').forEach(function(el){io.observe(el)})}}catch(e){}
+$('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
